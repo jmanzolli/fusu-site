@@ -16,8 +16,14 @@ assets/
   js/main.js
   img/                         imagens (hero, time, cartaz, posts, logo, apoio)
 .nojekyll                      impede processamento Jekyll no GitHub Pages
-CNAME                          domínio próprio (editar antes de publicar)
+CNAME.exemplo                  domínio próprio — renomear para CNAME quando o DNS estiver pronto
 ```
+
+## No ar
+
+- Repositório: https://github.com/jmanzolli/fusu-site
+- Site: https://www.jonatasmanzolli.com/fusu-site/
+- Domínio próprio `projetofusu.com`: **ainda apontando para o Wix** — ver seção abaixo
 
 ## Ver localmente
 
@@ -27,28 +33,32 @@ python3 -m http.server 8000
 
 Depois abrir http://localhost:8000
 
-## Publicar no GitHub Pages
+## Atualizar o site
 
-1. Criar repositório no GitHub (ex.: `fusu-site`).
-2. Na pasta do projeto:
-
-```bash
-git init && git add -A && git commit -m "feat: site estático FuSu" && git branch -M main
-```
-
-3. Ligar ao remoto e enviar (trocar `SEU-USUARIO`):
+Editar os arquivos, depois:
 
 ```bash
-git remote add origin https://github.com/SEU-USUARIO/fusu-site.git && git push -u origin main
+git add -A && git commit -m "conteúdo: atualiza X" && git push --no-thin origin main
 ```
 
-4. No GitHub: **Settings → Pages → Source: Deploy from a branch → Branch: `main` / `(root)`**.
-5. Em ~1 min o site fica em `https://SEU-USUARIO.github.io/fusu-site/`.
+O GitHub Pages reconstrói sozinho em ~1 min.
+
+> `--no-thin` é necessário nesta máquina: sem ele o push falha com `RPC falhou: HTTP 400`.
 
 ## Domínio próprio
 
-1. Editar o arquivo `CNAME` e deixar só o domínio, sem `https://`. Ex.: `projetofusu.com`
-2. No registrador do domínio, criar os registros DNS:
+O domínio `projetofusu.com` hoje aponta para o Wix. Enquanto isso, o custom domain fica **desligado** no Pages e o arquivo se chama `CNAME.exemplo` — assim o site fica visível em `www.jonatasmanzolli.com/fusu-site`.
+
+Quando quiser migrar:
+
+1. No registrador do domínio, criar os registros DNS abaixo (apagando os do Wix).
+2. Renomear o arquivo e enviar:
+
+```bash
+git mv CNAME.exemplo CNAME && git commit -m "chore: ativa domínio próprio" && git push --no-thin origin main
+```
+
+Registros DNS:
 
 **Domínio raiz (`projetofusu.com`) — 4 registros A:**
 
@@ -64,10 +74,10 @@ git remote add origin https://github.com/SEU-USUARIO/fusu-site.git && git push -
 **Subdomínio `www` — 1 registro CNAME:**
 
 ```
-www  →  SEU-USUARIO.github.io
+www  →  jmanzolli.github.io
 ```
 
-3. No GitHub: **Settings → Pages → Custom domain** → escrever o domínio → salvar → marcar **Enforce HTTPS** depois que o certificado for emitido (pode levar até 24h).
+3. No GitHub: **Settings → Pages → Custom domain** → escrever `projetofusu.com` → salvar → marcar **Enforce HTTPS** depois que o certificado for emitido (pode levar até 24h).
 
 > Se o domínio atual `projetofusu.com` está registrado/gerido pelo Wix, é preciso apontar o DNS para o GitHub (passos acima) ou transferir o domínio antes. Enquanto o DNS apontar para o Wix, o site antigo continua no ar.
 
