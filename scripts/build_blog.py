@@ -42,7 +42,7 @@ def nav(prefix: str, active: str = "") -> str:
     return f"""<header class="nav">
   <div class="nav__inner">
     <a class="brand" href="{prefix}index.html">
-      <img src="{prefix}assets/img/logo.png" alt="Logótipo FuSu">
+      <img src="{prefix}assets/img/brand/globe.png" alt="Logótipo FuSu">
       <span>Futuro Sustentável</span>
     </a>
     <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
@@ -71,7 +71,7 @@ def head(title: str, description: str, image: str, prefix: str,
 <meta property="og:description" content="{description}">
 <meta property="og:image" content="{prefix}{image}">
 <meta property="og:type" content="article">
-<link rel="icon" href="{prefix}assets/img/logo.png">
+<link rel="icon" href="{prefix}assets/img/brand/globe.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600;700;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -82,12 +82,30 @@ def head(title: str, description: str, image: str, prefix: str,
 <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>"""
 
 
+SUPPORT = """<section class="support">
+  <div class="wrap support__inner">
+    <a class="support__logo" href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">
+      <img src="{p}assets/img/edp.png" alt="Fundação EDP" loading="lazy">
+    </a>
+    <div>
+      <p class="support__label">Apoio</p>
+      <h2 class="support__title">O FuSu é apoiado pela Fundação EDP</h2>
+      <p class="support__text">Através do programa <strong>Escola da Energia</strong>, que distinguiu o podcast com uma <strong>Menção Honrosa</strong> em 2025.</p>
+      <p class="support__cta">
+        <a class="btn btn--ghost" href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">Conhecer a Fundação EDP</a>
+      </p>
+    </div>
+  </div>
+</section>
+"""
+
 FOOTER = """<footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
       <div>
-        <h3>FuSu Podcast</h3>
-        <p>Futuro Sustentável — sustentabilidade de um modo fácil, abrangente e descontraído.</p>
+        <img class="footer__logo" src="{p}assets/img/brand/logo-full.png" alt="FuSu — Futuro Sustentável Podcast" loading="lazy">
+        <p class="footer__tagline">Sustentabilidade de um jeito que você nunca ouviu antes.</p>
+        <p class="footer__about">Um podcast sobre clima, energia e o futuro que ainda dá para construir.</p>
       </div>
       <div>
         <h3>Ouça</h3>
@@ -96,6 +114,7 @@ FOOTER = """<footer class="footer">
           <li><a href="https://open.spotify.com/show/0nLbEuYuL0trgLPo5lUbRJ" target="_blank" rel="noopener">Spotify</a></li>
           <li><a href="https://podcasts.apple.com/us/podcast/futuro-sustent%C3%A1vel/id1704469234" target="_blank" rel="noopener">Apple Podcasts</a></li>
           <li><a href="https://www.deezer.com/en/show/1000211035" target="_blank" rel="noopener">Deezer</a></li>
+          <li><a href="https://anchor.fm/s/e7f23af4/podcast/rss" target="_blank" rel="noopener">Feed RSS</a></li>
         </ul>
       </div>
       <div>
@@ -103,19 +122,17 @@ FOOTER = """<footer class="footer">
         <ul>
           <li><a href="https://www.instagram.com/fusupodcast/" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://www.linkedin.com/company/fusupodcast/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="{p}index.html#contato">Fale com a gente</a></li>
         </ul>
-        <h3 style="margin-top:24px">Apoio</h3>
-        <p class="footer__support">
-          <a href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">
-            <img src="{p}assets/img/edp.png" alt="Fundação EDP" loading="lazy">
-          </a>
-          <small>Fundação EDP · Escola da Energia<br>Menção Honrosa 2025</small>
-        </p>
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2025 by Futuro Sustentável co.</span>
-      <span>FUSU PODCAST</span>
+      <span>© 2025 Futuro Sustentável co.</span>
+      <nav>
+        <a href="{p}index.html">Início</a>
+        <a href="{p}episodios.html">Episódios</a>
+        <a href="{p}blog/index.html">Blog</a>
+      </nav>
     </div>
   </div>
 </footer>
@@ -190,6 +207,7 @@ def build_post(post: dict, prev: dict | None, nxt: dict | None) -> str:
   </article>
 </main>
 
+{SUPPORT.format(p='../')}
 {FOOTER.format(p='../')}"""
 
 
@@ -216,6 +234,7 @@ def build_index(posts: list) -> str:
   </section>
 </main>
 
+{SUPPORT.format(p='../')}
 {FOOTER.format(p='../')}"""
 
 

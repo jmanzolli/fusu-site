@@ -124,6 +124,25 @@ Site estático não processa formulários. O `<form>` em `index.html` está apon
 Criar conta grátis em https://formspree.io, copiar o ID do formulário e substituir `SEU_ID_AQUI`.
 Alternativas: Basin, Getform, Web3Forms. Ou trocar por `mailto:`.
 
+## Identidade visual
+
+Segue o manual da marca (`[FuSu] Identidade da marca.pdf`):
+
+| Token | Cor | Uso |
+|---|---|---|
+| `--ink` | `#151F27` | fundo escuro, menu, rodapé |
+| `--ink-soft` | `#2E3A44` | texto corrido, superfícies |
+| `--paper-alt` | `#EFF3F6` | seções claras alternadas |
+| `--accent` | `#38B6FF` | destaque, botões, links em fundo escuro |
+| `--accent-mid` | `#0072B4` | azul médio |
+| `--accent-dark` | `#0046A2` | links em fundo claro |
+
+Fontes: **Gemunu Libre Extra Bold** (títulos) e **Roboto** (texto), ambas do Google Fonts.
+
+Logos extraídos do manual estão em `assets/img/brand/`:
+`logo-full.png` (emblema completo, rodapé), `fusu-word.png` (wordmark, hero),
+`fusu-emblem.png` (globo + FUSU) e `globe.png` (favicon e ícone do menu).
+
 ## Editar conteúdo
 
 - Textos e seções: `index.html`
