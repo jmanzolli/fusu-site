@@ -7,16 +7,42 @@
 <meta name="description" content="FuSu — Futuro Sustentável: podcast que fala de sustentabilidade de um modo fácil, abrangente e descontraído. Rumo a um caminho sustentável.">
 <meta property="og:title" content="FUSU | Futuro Sustentável — Podcast">
 <meta property="og:description" content="Podcast sobre sustentabilidade, resiliência climática e futuro. Novos episódios com convidados especialistas.">
-<meta property="og:image" content="assets/img/fusu-poster.png">
+<meta property="og:image" content="assets/img/fusu-poster.webp">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/logo.png">
 <link rel="apple-touch-icon" href="assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600;700;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://www.jonatasmanzolli.com/fusu-site/">
 <link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PodcastSeries",
+  "name": "FuSu — Futuro Sustentável",
+  "url": "https://www.jonatasmanzolli.com/fusu-site/",
+  "description": "Podcast que aborda sustentabilidade de um modo fácil, abrangente e descontraído.",
+  "inLanguage": "pt",
+  "image": "https://www.jonatasmanzolli.com/fusu-site/assets/img/fusu-poster.webp",
+  "webFeed": "https://anchor.fm/s/e7f23af4/podcast/rss",
+  "author": [
+    { "@type": "Person", "name": "Nato Manzolli" },
+    { "@type": "Person", "name": "Denner Déda" }
+  ],
+  "sameAs": [
+    "https://open.spotify.com/show/0nLbEuYuL0trgLPo5lUbRJ",
+    "https://podcasts.apple.com/us/podcast/futuro-sustent%C3%A1vel/id1704469234",
+    "https://www.deezer.com/en/show/1000211035",
+    "https://www.instagram.com/fusupodcast/",
+    "https://www.linkedin.com/company/fusupodcast/"
+  ]
+}
+</script>
 </head>
 <body>
+
+<a class="skip-link" href="#fusu">Ir para o conteúdo</a>
 
 <header class="nav" id="nav">
   <div class="nav__inner">
@@ -27,8 +53,8 @@
     <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
     <ul class="nav__links" id="navLinks">
       <li><a href="#fusu">FuSu</a></li>
-      <li><a href="#episodios">Episódios</a></li>
-      <li><a href="#blog">Blog</a></li>
+      <li><a href="episodios.html">Episódios</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
       <li><a href="#quem-somos">Quem Somos</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
@@ -44,10 +70,15 @@
     <div class="hero__content">
       <h1 class="hero__title">FUSU</h1>
       <p class="hero__sub">Futuro Sustentável</p>
+      <p class="hero__desc">O podcast que fala de sustentabilidade, clima e energia de um jeito fácil, abrangente e descontraído. Duas temporadas, 28 episódios.</p>
       <div class="hero__cta">
-        <a class="btn btn--primary" href="#episodios">Ouvir episódios</a>
+        <a class="btn btn--primary" href="episodios.html">Ouvir episódios</a>
         <a class="btn btn--ghost" href="#fusu">Saber mais</a>
       </div>
+      <p class="hero__award">
+        <img src="assets/img/edp.png" alt="" width="52" height="28">
+        Menção Honrosa · Prémio Escola da Energia, Fundação EDP
+      </p>
     </div>
   </section>
 
@@ -68,7 +99,7 @@
         </ul>
       </div>
       <div class="about__art">
-        <img src="assets/img/fusu-poster.png" alt="Cartaz do podcast FuSu — Futuro Sustentável" loading="lazy">
+        <img src="assets/img/fusu-poster.webp" alt="Cartaz do podcast FuSu — Futuro Sustentável" loading="lazy">
       </div>
     </div>
   </section>
@@ -77,14 +108,14 @@
   <section class="section section--dark" id="episodios">
     <div class="wrap reveal">
       <h2 class="section-title">Episódios</h2>
-      <p class="lead">Ouça o FuSu no seu agregador favorito. Novos episódios com convidados especialistas em sustentabilidade, clima e economia.</p>
-      <div class="player">
-        <iframe
-          src="https://open.spotify.com/embed/show/0nLbEuYuL0trgLPo5lUbRJ?utm_source=generator&theme=0"
-          title="FuSu — Futuro Sustentável no Spotify"
-          loading="lazy"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      </div>
+      <p class="lead">Duas temporadas, 28 episódios entre conversas longas e Pílulas de Sustentabilidade. Ouça direto aqui no site ou no seu agregador favorito.</p>
+
+      <div class="ep-teaser" id="epTeaser" data-limit="4"></div>
+
+      <p style="margin-top:32px">
+        <a class="btn btn--primary" href="episodios.html">Ver todos os episódios</a>
+      </p>
+
       <ul class="platforms">
         <li><a href="https://open.spotify.com/show/0nLbEuYuL0trgLPo5lUbRJ" target="_blank" rel="noopener">Spotify</a></li>
         <li><a href="https://podcasts.apple.com/us/podcast/futuro-sustent%C3%A1vel/id1704469234" target="_blank" rel="noopener">Apple Podcasts</a></li>
@@ -101,7 +132,7 @@
 
       <div class="team">
         <article class="member">
-          <img src="assets/img/nato.jpg" alt="Nato Manzolli" loading="lazy">
+          <img src="assets/img/nato.webp" alt="Nato Manzolli" loading="lazy">
           <div class="member__body">
             <p class="member__role">Host &amp; Editor</p>
             <h3 class="member__name">Nato Manzolli</h3>
@@ -111,7 +142,7 @@
         </article>
 
         <article class="member">
-          <img src="assets/img/denner.jpg" alt="Denner Déda" loading="lazy">
+          <img src="assets/img/denner.webp" alt="Denner Déda" loading="lazy">
           <div class="member__body">
             <p class="member__role">Host</p>
             <h3 class="member__name">Denner Déda</h3>
@@ -121,7 +152,7 @@
         </article>
 
         <article class="member">
-          <img src="assets/img/amanda.jpg" alt="Amanda Porto" loading="lazy">
+          <img src="assets/img/amanda.webp" alt="Amanda Porto" loading="lazy">
           <div class="member__body">
             <p class="member__role">Creative Manager</p>
             <h3 class="member__name">Amanda Porto</h3>
@@ -131,7 +162,7 @@
         </article>
 
         <article class="member">
-          <img src="assets/img/luiza.jpg" alt="Luiza Ambrosio" loading="lazy">
+          <img src="assets/img/luiza.webp" alt="Luiza Ambrosio" loading="lazy">
           <div class="member__body">
             <p class="member__role">Marketing Manager</p>
             <h3 class="member__name">Luiza Ambrosio</h3>
@@ -148,25 +179,41 @@
       <h2 class="section-title">Blog</h2>
       <p class="lead">Nosso blog oferece informações adicionais sobre os tópicos que abordamos em nosso podcast, com links para artigos, pesquisas e dicas práticas para uma vida mais consciente e sustentável. Encontre também bastidores de nossas entrevistas e informações adicionais sobre nossos convidados.</p>
 
-      <div class="posts">
+      <div class="posts posts--3">
+      <!-- posts:start -->
         <a class="post-card" href="blog/avaliacao-do-ciclo-de-vida.html">
-          <img src="assets/img/post-acv.jpg" alt="Episódio: Avaliação do Ciclo de Vida" loading="lazy">
+          <img src="assets/img/post-acv.webp" alt="Episódio: Avaliação do Ciclo de Vida" loading="lazy">
           <div class="post-card__body">
-            <p class="post-card__meta">Jônatas Augusto Manzolli · 13 out 2025 · 1 min</p>
+            <p class="post-card__meta">13 out 2025 · 1 min de leitura</p>
             <h3 class="post-card__title">Episódio: Avaliação do Ciclo de Vida</h3>
-            <p class="post-card__excerpt">Em conversa com Jade Muller, especialista em sustentabilidade e Avaliação do Ciclo de Vida (ACV), exploramos as bases dessa metodologia científica que permite compreender o verdadeiro custo ambiental de tudo o que produzimos e consumimos.</p>
+            <p class="post-card__excerpt">Em conversa com Jade Muller, especialista em Avaliação do Ciclo de Vida (ACV), exploramos a metodologia que permite compreender o verdadeiro custo ambiental de tudo o que produzimos e consumimos.</p>
+            <p class="chips"><span class="chip">Episódio</span><span class="chip">Economia Circular</span></p>
           </div>
         </a>
-
         <a class="post-card" href="blog/economia-do-bem-estar.html">
           <img src="assets/img/post-bemestar.webp" alt="Episódio: Economia do Bem-Estar" loading="lazy">
           <div class="post-card__body">
-            <p class="post-card__meta">Jônatas Augusto Manzolli · 29 set 2025 · 1 min</p>
+            <p class="post-card__meta">29 set 2025 · 1 min de leitura</p>
             <h3 class="post-card__title">Episódio: Economia do Bem-Estar</h3>
-            <p class="post-card__excerpt">A nova temporada do FuSu continua com um tema central para pensar o futuro: a economia do bem-estar, com a Dra. Susana Fonseca, da ZERO.</p>
+            <p class="post-card__excerpt">Com a Dra. Susana Fonseca, da ZERO, conversamos sobre como colocar o bem-estar humano no centro das políticas e práticas económicas.</p>
+            <p class="chips"><span class="chip">Episódio</span><span class="chip">Economia</span></p>
           </div>
         </a>
+        <a class="post-card" href="blog/vivendo-com-o-minimo.html">
+          <img src="assets/img/post-minimalismo.webp" alt="Episódio: Vivendo com o mínimo" loading="lazy">
+          <div class="post-card__body">
+            <p class="post-card__meta">18 set 2025 · 1 min de leitura</p>
+            <h3 class="post-card__title">Episódio: Vivendo com o mínimo</h3>
+            <p class="post-card__excerpt">A 2ª temporada estreou com foco em minimalismo, ao lado de Ana Milhazes, criadora do Lixo Zero Portugal e autora de "Vida Lixo Zero".</p>
+            <p class="chips"><span class="chip">Episódio</span><span class="chip">Consumo Consciente</span></p>
+          </div>
+        </a>
+      <!-- posts:end -->
       </div>
+
+      <p style="margin-top:36px">
+        <a class="btn btn--outline" href="blog/index.html">Ver todos os posts</a>
+      </p>
     </div>
   </section>
 
@@ -249,5 +296,6 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/player.js"></script>
 </body>
 </html>

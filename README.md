@@ -7,17 +7,49 @@ HTML + CSS + JS puro. Sem build, sem dependências.
 ## Estrutura
 
 ```
-index.html                     página única (FuSu, Episódios, Blog, Quem Somos, Contato)
-blog/
-  avaliacao-do-ciclo-de-vida.html
-  economia-do-bem-estar.html
+index.html                     home (hero, sobre, episódios em destaque, time, blog, contato)
+episodios.html                 todos os episódios + player/playlist
+404.html                       página de erro
+blog/index.html                lista de todos os posts        [gerado]
+blog/<slug>.html               uma página por post            [gerado]
 assets/
   css/style.css
-  js/main.js
-  img/                         imagens (hero, time, cartaz, posts, logo, apoio)
+  js/main.js                   menu, animações, scroll-spy
+  js/player.js                 lista de episódios, filtros, player fixo
+  data/episodes.json           episódios vindos do RSS        [gerado]
+  data/posts.json              conteúdo do blog               [fonte da verdade]
+  img/                         imagens do site (WebP)
+  img/ep/                      capas dos episódios            [geradas]
+scripts/build_episodes.py      lê o RSS do podcast e gera episodes.json + capas
+scripts/build_blog.py          gera o blog, a home e sitemap.xml a partir de posts.json
+sitemap.xml, robots.txt        [gerados]
 .nojekyll                      impede processamento Jekyll no GitHub Pages
 CNAME.exemplo                  domínio próprio — renomear para CNAME quando o DNS estiver pronto
 ```
+
+## Publicar um episódio novo
+
+Nada a fazer à mão — o episódio já está no RSS do podcast:
+
+```bash
+python3 scripts/build_episodes.py && git add -A && git commit -m "conteudo: novos episodios" && git push --no-thin origin main
+```
+
+## Publicar um post novo
+
+1. Adicionar um objeto no início da lista `posts` em `assets/data/posts.json`
+   (campos: `slug`, `title`, `date`, `dateLabel`, `author`, `readingTime`, `image`, `tags`, `excerpt`, `body`).
+2. Colocar a imagem em `assets/img/` (de preferência `.webp`, 1000px de largura).
+3. Rodar:
+
+```bash
+python3 scripts/build_blog.py && git add -A && git commit -m "conteudo: novo post" && git push --no-thin origin main
+```
+
+O script cria a página do post, atualiza a lista do blog, os 3 destaques da home e o `sitemap.xml`.
+
+> Ao ativar o domínio próprio, trocar `SITE_URL` no topo de `scripts/build_blog.py` e rodar o script de novo
+> (isso corrige canonical, JSON-LD e sitemap). Também trocar as tags `canonical` de `index.html` e `episodios.html`.
 
 ## No ar
 
