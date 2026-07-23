@@ -117,7 +117,7 @@ www  →  jmanzolli.github.io
 O formulário usa o **FormSubmit** — funciona em site estático, sem backend e sem conta.
 
 ```html
-<form action="https://formsubmit.co/ajax/contatofusu@gmail.com" method="POST">
+<form action="https://formsubmit.co/ajax/5d86217fb71a2255d1d8a87a87c6800e" method="POST">
 ```
 
 **Ativação (uma vez só):**

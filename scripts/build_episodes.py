@@ -36,6 +36,83 @@ MESES = ["jan", "fev", "mar", "abr", "mai", "jun",
          "jul", "ago", "set", "out", "nov", "dez"]
 
 
+# --- Normalização pt-PT -> pt-BR das descrições vindas do RSS -----------------
+# Só grafia e vocabulário: nenhum fato, nome ou número é alterado.
+# Prefixo europeu -> prefixo brasileiro. Uma passagem só, com fronteira de palavra,
+# para não reescrever uma substituição já feita.
+PTBR_STEMS = {
+    "prémio": "prêmio",
+    "económ": "econôm",
+    "autónom": "autônom",
+    "anónim": "anônim",
+    "sinónim": "sinônim",
+    "fenómen": "fenômen",
+    "eletrónic": "eletrônic",
+    "electrónic": "eletrônic",
+    "polémic": "polêmic",
+    "académ": "acadêm",
+    "génio": "gênio",
+    "ténue": "tênue",
+    "cómod": "cômod",
+    "facto": "fato",
+    "factos": "fatos",
+    "contacto": "contato",
+    "contactos": "contatos",
+    "óptim": "ótim",
+    "partilhar": "compartilhar",
+    "partilhando": "compartilhando",
+    "partilhado": "compartilhado",
+    "partilhada": "compartilhada",
+    "partilhamos": "compartilhamos",
+    "partilham": "compartilham",
+    "partilha": "compartilha",
+    "sector": "setor",
+    "sectores": "setores",
+    "objectivo": "objetivo",
+    "objectivos": "objetivos",
+    "acção": "ação",
+    "acções": "ações",
+    "equipa": "equipe",
+    "connosco": "conosco",
+    "utilizador": "usuário",
+    "ecrã": "tela",
+    "telemóvel": "celular",
+    "autocarro": "ônibus",
+    "comboio": "trem",
+}
+
+STEM_RE = re.compile(
+    r"\b(" + "|".join(sorted(PTBR_STEMS, key=len, reverse=True)) + r")",
+    re.IGNORECASE,
+)
+
+
+def _swap_stem(match: re.Match) -> str:
+    found = match.group(1)
+    novo = PTBR_STEMS[found.lower()]
+    return novo.capitalize() if found[0].isupper() else novo
+
+# "está a transformar" -> "está transformando"
+PROGRESSIVE = re.compile(
+    r"\b(est(?:á|ão|ava|avam|ivera[m]?|arão|aria[m]?)|"
+    r"continua|continuam|continuava|continuavam|"
+    r"anda|andam|segue|seguem)\s+a\s+([a-zçãáéíóúâêôõà]+?)(ar|er|ir)\b",
+    re.IGNORECASE,
+)
+
+GERUND = {"ar": "ando", "er": "endo", "ir": "indo"}
+
+
+def to_ptbr(text: str) -> str:
+    """Passa a grafia europeia para a brasileira, preservando o conteúdo."""
+    text = STEM_RE.sub(_swap_stem, text)
+    return PROGRESSIVE.sub(lambda m: f"{m.group(1)} {m.group(2)}{GERUND[m.group(3).lower()]}", text)
+
+
+# O feed repete um rodapé de redes sociais em cada episódio — corta-se na geração.
+FEED_FOOTER = re.compile(r"\n\s*--\s*\n.*$", re.S)
+
+
 def strip_html(raw: str) -> str:
     txt = re.sub(r"<br\s*/?>", "\n", raw or "")
     txt = re.sub(r"</p>", "\n\n", txt)
@@ -44,6 +121,7 @@ def strip_html(raw: str) -> str:
     for ch in ("⁠", "⁩", "⁦", "​"):
         txt = txt.replace(ch, "")
     txt = re.sub(r"[ \t]+", " ", txt)
+    txt = FEED_FOOTER.sub("", txt)
     return re.sub(r"\n{3,}", "\n\n", txt).strip()
 
 
@@ -231,7 +309,7 @@ def main() -> None:
             "audio": enclosure.get("url") if enclosure is not None else "",
             "link": item.findtext("link") or "",
             "cover": download_cover(img_el.get("href") if img_el is not None else "", slug),
-            "description": strip_html(item.findtext("description") or ""),
+            "description": to_ptbr(strip_html(item.findtext("description") or "")),
         })
 
     episodes.sort(key=lambda e: e["date"], reverse=True)
