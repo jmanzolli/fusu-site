@@ -23,6 +23,7 @@ assets/
 scripts/template.py            nav, rodapé, <head> e faixa de apoio partilhados
 scripts/build_episodes.py      RSS -> episodes.json + capas + páginas de episódio
 scripts/build_blog.py          posts.json -> blog + destaques da home + sitemap
+scripts/stamp_assets.py        carimba CSS/JS com hash (evita cache velho no celular)
 sitemap.xml, robots.txt                                                                    [gerados]
 ```
 

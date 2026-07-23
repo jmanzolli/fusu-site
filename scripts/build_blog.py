@@ -17,6 +17,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import stamp_assets  # noqa: E402
 import template as T  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -216,6 +217,7 @@ def main() -> None:
 
     update_home(posts)
     build_sitemap(posts)
+    stamp_assets.main()
     print(f"OK — {len(posts)} artigos gerados")
 
 

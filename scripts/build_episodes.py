@@ -23,6 +23,7 @@ from datetime import datetime
 from email.utils import parsedate_to_datetime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import stamp_assets  # noqa: E402
 import template as T  # noqa: E402
 
 FEED = T.RSS
@@ -464,6 +465,7 @@ def main() -> None:
     entradas = entry_points(episodes)
     render_home(episodes, entradas)
 
+    stamp_assets.main()
     print(f"OK — {len(episodes)} episódios: dados, capas, páginas e home pré-renderizada")
 
 
