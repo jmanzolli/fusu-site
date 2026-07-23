@@ -2,9 +2,10 @@
 """Gera o blog a partir de assets/data/posts.json.
 
 Cria:
-  blog/index.html          — lista de todos os posts
-  blog/<slug>.html         — uma página por post
-  e reescreve o bloco de destaques do blog em index.html (entre marcadores).
+  blog/index.html        — lista de artigos (destaque + restantes)
+  blog/<slug>.html       — uma página por artigo
+  sitemap.xml, robots.txt (inclui as páginas de episódio)
+  e reescreve o bloco de artigos em destaque da home (entre marcadores).
 
 Uso:  python3 scripts/build_blog.py
 """
@@ -13,12 +14,14 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 
-# URL pública do site — trocar quando o domínio próprio for ativado
-SITE_URL = "https://www.jonatasmanzolli.com/fusu-site"
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import template as T  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "assets", "data", "posts.json")
+EPISODES = os.path.join(ROOT, "assets", "data", "episodes.json")
 BLOG_DIR = os.path.join(ROOT, "blog")
 HOME = os.path.join(ROOT, "index.html")
 
@@ -26,252 +29,172 @@ START = "<!-- posts:start -->"
 END = "<!-- posts:end -->"
 
 
-def nav(prefix: str, active: str = "") -> str:
-    items = [
-        ("FuSu", f"{prefix}index.html#fusu", "fusu"),
-        ("Episódios", f"{prefix}episodios.html", "episodios"),
-        ("Blog", f"{prefix}blog/index.html", "blog"),
-        ("Quem Somos", f"{prefix}index.html#quem-somos", "quem-somos"),
-        ("Contato", f"{prefix}index.html#contato", "contato"),
-    ]
-    def li(label: str, href: str, key: str) -> str:
-        cls = ' class="is-active"' if key == active else ""
-        return f'      <li><a href="{href}"{cls}>{label}</a></li>'
-
-    lis = "\n".join(li(*item) for item in items)
-    return f"""<header class="nav">
-  <div class="nav__inner">
-    <a class="brand" href="{prefix}index.html">
-      <img src="{prefix}assets/img/brand/globe.png" alt="Logótipo FuSu">
-      <span>Futuro Sustentável</span>
-    </a>
-    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
-    <ul class="nav__links" id="navLinks">
-{lis}
-    </ul>
-  </div>
-</header>"""
+def featured_card(post: dict, prefix: str) -> str:
+    tags = "".join(f'<span class="chip chip--soft">{t}</span>' for t in post.get("tags", []))
+    return f"""      <a class="post-featured" href="{prefix}blog/{post['slug']}.html">
+        <img src="{prefix}{post['image']}" alt="" width="900" height="506" loading="lazy">
+        <div>
+          <p class="chips">{tags}</p>
+          <h3>{post['title']}</h3>
+          <p>{post['excerpt']}</p>
+          <p class="meta">{post['dateLabel']}<span>{post['readingTime']} de leitura</span></p>
+        </div>
+      </a>"""
 
 
-def head(title: str, description: str, image: str, prefix: str,
-         canonical: str = "", jsonld: str = "") -> str:
-    extra = ""
-    if canonical:
-        extra += f'\n<link rel="canonical" href="{canonical}">'
-    if jsonld:
-        extra += f'\n<script type="application/ld+json">\n{jsonld}\n</script>'
-    return f"""<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{title}</title>
-<meta name="description" content="{description}">
-<meta property="og:title" content="{title}">
-<meta property="og:description" content="{description}">
-<meta property="og:image" content="{prefix}{image}">
-<meta property="og:type" content="article">
-<link rel="icon" href="{prefix}assets/img/brand/globe.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600;700;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{prefix}assets/css/style.css">{extra}
-</head>
-<body>
-
-<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>"""
-
-
-SUPPORT = """<section class="support">
-  <div class="wrap support__inner">
-    <a class="support__logo" href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">
-      <img src="{p}assets/img/edp.png" alt="Fundação EDP" loading="lazy">
-    </a>
-    <div>
-      <p class="support__label">Apoio</p>
-      <h2 class="support__title">O FuSu é apoiado pela Fundação EDP</h2>
-      <p class="support__text">Através do programa <strong>Escola da Energia</strong>, que distinguiu o podcast com uma <strong>Menção Honrosa</strong> em 2025.</p>
-      <p class="support__cta">
-        <a class="btn btn--ghost" href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">Conhecer a Fundação EDP</a>
-      </p>
-    </div>
-  </div>
-</section>
-"""
-
-FOOTER = """<footer class="footer">
-  <div class="wrap">
-    <div class="footer__grid">
-      <div>
-        <img class="footer__logo" src="{p}assets/img/brand/logo-full.png" alt="FuSu — Futuro Sustentável Podcast" loading="lazy">
-        <p class="footer__tagline">Sustentabilidade de um jeito que você nunca ouviu antes.</p>
-        <p class="footer__about">Um podcast sobre clima, energia e o futuro que ainda dá para construir.</p>
-      </div>
-      <div>
-        <h3>Ouça</h3>
-        <ul>
-          <li><a href="{p}episodios.html">Todos os episódios</a></li>
-          <li><a href="https://open.spotify.com/show/0nLbEuYuL0trgLPo5lUbRJ" target="_blank" rel="noopener">Spotify</a></li>
-          <li><a href="https://podcasts.apple.com/us/podcast/futuro-sustent%C3%A1vel/id1704469234" target="_blank" rel="noopener">Apple Podcasts</a></li>
-          <li><a href="https://www.deezer.com/en/show/1000211035" target="_blank" rel="noopener">Deezer</a></li>
-          <li><a href="https://anchor.fm/s/e7f23af4/podcast/rss" target="_blank" rel="noopener">Feed RSS</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Siga</h3>
-        <ul>
-          <li><a href="https://www.instagram.com/fusupodcast/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.linkedin.com/company/fusupodcast/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="{p}index.html#contato">Fale com a gente</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <span>© 2025 Futuro Sustentável co.</span>
-      <nav>
-        <a href="{p}index.html">Início</a>
-        <a href="{p}episodios.html">Episódios</a>
-        <a href="{p}blog/index.html">Blog</a>
-      </nav>
-    </div>
-  </div>
-</footer>
-
-<script src="{p}assets/js/main.js"></script>
-</body>
-</html>
-"""
-
-
-def card(post: dict, prefix: str) -> str:
-    tags = "".join(f'<span class="chip">{t}</span>' for t in post.get("tags", []))
-    return f"""        <a class="post-card" href="{prefix}blog/{post['slug']}.html">
-          <img src="{prefix}{post['image']}" alt="{post['title']}" loading="lazy">
-          <div class="post-card__body">
-            <p class="post-card__meta">{post['dateLabel']} · {post['readingTime']} de leitura</p>
-            <h3 class="post-card__title">{post['title']}</h3>
-            <p class="post-card__excerpt">{post['excerpt']}</p>
-            <p class="chips">{tags}</p>
-          </div>
+def item_card(post: dict, prefix: str) -> str:
+    tag = post.get("tags", ["Artigo"])[0]
+    return f"""        <a class="post-item" href="{prefix}blog/{post['slug']}.html">
+          <img src="{prefix}{post['image']}" alt="" width="600" height="338" loading="lazy">
+          <p class="chips"><span class="chip chip--soft">{tag}</span></p>
+          <h3>{post['title']}</h3>
+          <p>{post['excerpt']}</p>
+          <p class="meta">{post['dateLabel']}<span>{post['readingTime']}</span></p>
         </a>"""
 
 
-def build_post(post: dict, prev: dict | None, nxt: dict | None) -> str:
-    paras = "\n        ".join(f"<p>{p}</p>" for p in post["body"])
-    tags = "".join(f'<span class="chip chip--light">{t}</span>' for t in post.get("tags", []))
+def build_post(post: dict, newer: dict | None, older: dict | None) -> str:
+    paragraphs = "\n        ".join(f"<p>{p}</p>" for p in post["body"])
+    tags = "".join(f'<span class="chip chip--soft">{t}</span>' for t in post.get("tags", []))
+    url = f"{T.SITE_URL}/blog/{post['slug']}.html"
+    image_url = f"{T.SITE_URL}/{post['image']}"
 
-    around = []
-    if nxt:
-        around.append(f'<a class="pager__item" href="{nxt["slug"]}.html"><span>← Anterior</span>{nxt["title"]}</a>')
-    if prev:
-        around.append(f'<a class="pager__item pager__item--next" href="{prev["slug"]}.html"><span>Seguinte →</span>{prev["title"]}</a>')
-    pager = f'<nav class="pager">{"".join(around)}</nav>' if around else ""
+    jsonld = json.dumps([
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": post["title"],
+            "datePublished": post["date"],
+            "author": {"@type": "Person", "name": post["author"]},
+            "image": image_url,
+            "description": post["excerpt"],
+            "inLanguage": "pt",
+            "mainEntityOfPage": url,
+            "publisher": {"@type": "Organization", "name": "Futuro Sustentável co."},
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Início", "item": f"{T.SITE_URL}/"},
+                {"@type": "ListItem", "position": 2, "name": "Blog", "item": f"{T.SITE_URL}/blog/"},
+                {"@type": "ListItem", "position": 3, "name": post["title"], "item": url},
+            ],
+        },
+    ], ensure_ascii=False, indent=1)
 
-    jsonld = json.dumps({
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": post["title"],
-        "datePublished": post["date"],
-        "author": {"@type": "Person", "name": post["author"]},
-        "image": f"{SITE_URL}/{post['image']}",
-        "description": post["excerpt"],
-        "inLanguage": "pt",
-        "mainEntityOfPage": f"{SITE_URL}/blog/{post['slug']}.html",
-        "publisher": {"@type": "Organization", "name": "Futuro Sustentável co."},
-    }, ensure_ascii=False, indent=1)
+    pager = []
+    if older:
+        pager.append(f'<a class="pager__item" href="{older["slug"]}.html"><span>← Anterior</span>{older["title"]}</a>')
+    if newer:
+        pager.append(f'<a class="pager__item pager__item--next" href="{newer["slug"]}.html"><span>Seguinte →</span>{newer["title"]}</a>')
+    pager_html = f'<nav class="pager" aria-label="Outros artigos">{"".join(pager)}</nav>' if pager else ""
 
-    return f"""{head(post['title'] + ' | FuSu', post['excerpt'], post['image'], '../',
-                     f"{SITE_URL}/blog/{post['slug']}.html", jsonld)}
+    return f"""{T.head(post['title'] + ' | FuSu', post['excerpt'], image_url, '../', url, jsonld)}
 
-{nav('../', 'blog')}
+{T.nav('../', 'blog')}
 
 <main id="conteudo">
-  <section class="post-hero">
-    <div class="wrap">
-      <p class="post-card__meta">{post['author']} · {post['dateLabel']} · {post['readingTime']} de leitura</p>
-      <h1>{post['title']}</h1>
-      <p class="chips">{tags}</p>
-    </div>
-  </section>
+  <article>
+    <header class="page-hero">
+      <div class="wrap">
+        <p class="crumbs"><a href="../index.html">Início</a> / <a href="index.html">Blog</a></p>
+        <p class="chips" style="margin-bottom:16px">{tags}</p>
+        <h1>{post['title']}</h1>
+        <p class="meta">{post['author']}<span>{post['dateLabel']}</span><span>{post['readingTime']} de leitura</span></p>
+      </div>
+    </header>
 
-  <article class="section">
-    <div class="wrap">
-      <div class="post-body">
-        <img src="../{post['image']}" alt="{post['title']}">
-        {paras}
-        <p><a class="btn btn--primary" href="../episodios.html">Ouvir os episódios</a></p>
-        {pager}
-        <a class="back-link" href="index.html">← Todos os posts</a>
+    <div class="section">
+      <div class="wrap">
+        <div class="post-body">
+          <img src="../{post['image']}" alt="" width="900" height="506">
+          {paragraphs}
+          <p style="margin-top:32px"><a class="btn btn--outline" href="../episodios.html">Ouvir os episódios</a></p>
+          {pager_html}
+          <p><a class="back-link" href="index.html">← Todos os artigos</a></p>
+        </div>
       </div>
     </div>
   </article>
 </main>
 
-{SUPPORT.format(p='../')}
-{FOOTER.format(p='../')}"""
+{T.support('../')}
+
+{T.footer('../')}"""
 
 
 def build_index(posts: list) -> str:
-    cards = "\n".join(card(p, "../") for p in posts)
-    return f"""{head('Blog | FuSu — Futuro Sustentável', 'Artigos, bastidores dos episódios e informações sobre os convidados do podcast FuSu.', 'assets/img/post-acv.webp', '../', f'{SITE_URL}/blog/')}
+    featured = featured_card(posts[0], "../")
+    rest = "\n".join(item_card(p, "../") for p in posts[1:])
 
-{nav('../', 'blog')}
+    return f"""{T.head('Blog | FuSu — Futuro Sustentável',
+                       'Bastidores das entrevistas, referências e contexto extra sobre clima, energia e economia.',
+                       f'{T.SITE_URL}/{posts[0]["image"]}', '../', f'{T.SITE_URL}/blog/', '', 'website')}
+
+{T.nav('../', 'blog')}
 
 <main id="conteudo">
-  <section class="page-hero">
+  <header class="page-hero">
     <div class="wrap">
+      <p class="crumbs"><a href="../index.html">Início</a> / Blog</p>
       <h1>Blog</h1>
-      <p class="lead">Nosso blog oferece informações adicionais sobre os tópicos que abordamos em nosso podcast, com links para artigos, pesquisas e dicas práticas para uma vida mais consciente e sustentável. Encontre também bastidores de nossas entrevistas e informações adicionais sobre nossos convidados.</p>
+      <p class="lead">Bastidores das entrevistas, referências e contexto extra sobre os temas que aparecem no podcast — para quem quer ir além do áudio.</p>
     </div>
-  </section>
+  </header>
 
   <section class="section">
     <div class="wrap">
-      <div class="posts">
-{cards}
+{featured}
+
+      <div class="post-list">
+{rest}
       </div>
     </div>
   </section>
 </main>
 
-{SUPPORT.format(p='../')}
-{FOOTER.format(p='../')}"""
+{T.support('../')}
+
+{T.footer('../')}"""
 
 
 def update_home(posts: list) -> None:
     with open(HOME, encoding="utf-8") as fh:
         html = fh.read()
+
     if START not in html or END not in html:
-        print("  ! marcadores posts:start/posts:end não encontrados em index.html — homepage não atualizada")
+        print("  ! marcadores posts:start/posts:end não encontrados na home")
         return
-    cards = "\n".join(card(p, "") for p in posts[:3])
-    before = html.split(START)[0]
-    after = html.split(END)[1]
+
+    block = featured_card(posts[0], "") + "\n\n      <div class=\"post-list\">\n" \
+        + "\n".join(item_card(p, "") for p in posts[1:3]) + "\n      </div>"
+
+    before, after = html.split(START)[0], html.split(END)[1]
     with open(HOME, "w", encoding="utf-8") as fh:
-        fh.write(f"{before}{START}\n{cards}\n      {END}{after}")
-    print("  homepage: 3 posts em destaque atualizados")
+        fh.write(f"{before}{START}\n{block}\n      {END}{after}")
+    print("  home: destaque + 2 artigos atualizados")
 
 
 def build_sitemap(posts: list) -> None:
-    urls = [
-        (f"{SITE_URL}/", "1.0"),
-        (f"{SITE_URL}/episodios.html", "0.9"),
-        (f"{SITE_URL}/blog/", "0.8"),
-    ] + [(f"{SITE_URL}/blog/{p['slug']}.html", "0.6") for p in posts]
+    urls = [(f"{T.SITE_URL}/", "1.0"),
+            (f"{T.SITE_URL}/episodios.html", "0.9"),
+            (f"{T.SITE_URL}/blog/", "0.8")]
+    urls += [(f"{T.SITE_URL}/blog/{p['slug']}.html", "0.6") for p in posts]
 
-    body = "\n".join(
-        f"  <url><loc>{loc}</loc><priority>{prio}</priority></url>" for loc, prio in urls
-    )
-    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{body}
-</urlset>
-"""
+    if os.path.exists(EPISODES):
+        with open(EPISODES, encoding="utf-8") as fh:
+            urls += [(f"{T.SITE_URL}/episodios/{e['id']}.html", "0.7")
+                     for e in json.load(fh)["episodes"]]
+
+    body = "\n".join(f"  <url><loc>{loc}</loc><priority>{p}</priority></url>" for loc, p in urls)
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as fh:
-        fh.write(xml)
+        fh.write('<?xml version="1.0" encoding="UTF-8"?>\n'
+                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                 f"{body}\n</urlset>\n")
 
     with open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8") as fh:
-        fh.write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+        fh.write(f"User-agent: *\nAllow: /\n\nSitemap: {T.SITE_URL}/sitemap.xml\n")
 
     print(f"  sitemap.xml ({len(urls)} URLs) + robots.txt")
 
@@ -283,20 +206,17 @@ def main() -> None:
 
     os.makedirs(BLOG_DIR, exist_ok=True)
     for i, post in enumerate(posts):
-        prev = posts[i - 1] if i > 0 else None
-        nxt = posts[i + 1] if i + 1 < len(posts) else None
-        path = os.path.join(BLOG_DIR, f"{post['slug']}.html")
-        with open(path, "w", encoding="utf-8") as fh:
-            fh.write(build_post(post, prev, nxt))
-        print(f"  blog/{post['slug']}.html")
+        newer = posts[i - 1] if i > 0 else None
+        older = posts[i + 1] if i + 1 < len(posts) else None
+        with open(os.path.join(BLOG_DIR, f"{post['slug']}.html"), "w", encoding="utf-8") as fh:
+            fh.write(build_post(post, newer, older))
 
     with open(os.path.join(BLOG_DIR, "index.html"), "w", encoding="utf-8") as fh:
         fh.write(build_index(posts))
-    print("  blog/index.html")
 
     update_home(posts)
     build_sitemap(posts)
-    print(f"OK — {len(posts)} posts gerados")
+    print(f"OK — {len(posts)} artigos gerados")
 
 
 if __name__ == "__main__":

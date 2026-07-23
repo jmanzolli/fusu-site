@@ -3,33 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FUSU | Futuro Sustentável — Podcast</title>
-<meta name="description" content="FuSu — Futuro Sustentável: podcast que fala de sustentabilidade de um modo fácil, abrangente e descontraído. Rumo a um caminho sustentável.">
-<meta property="og:title" content="FUSU | Futuro Sustentável — Podcast">
-<meta property="og:description" content="Podcast sobre sustentabilidade, resiliência climática e futuro. Novos episódios com convidados especialistas.">
-<meta property="og:image" content="assets/img/fusu-poster.webp">
+<title>FuSu — Futuro Sustentável | Podcast sobre clima, energia e economia</title>
+<meta name="description" content="Podcast FuSu: conversas com pesquisadores e profissionais sobre clima, energia, economia e cidades — sem jargão. Duas temporadas, 28 episódios, entre entrevistas e Pílulas de Sustentabilidade.">
+<link rel="canonical" href="https://www.jonatasmanzolli.com/fusu-site/">
+
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="FuSu — Futuro Sustentável">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="FuSu — Futuro Sustentável | Podcast sobre clima, energia e economia">
+<meta property="og:description" content="Conversas com quem pesquisa e pratica sustentabilidade. Duas temporadas, 28 episódios, entre entrevistas e Pílulas de 5 minutos.">
+<meta property="og:url" content="https://www.jonatasmanzolli.com/fusu-site/">
+<meta property="og:image" content="https://www.jonatasmanzolli.com/fusu-site/assets/img/fusu-poster.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FuSu — Futuro Sustentável">
+<meta name="twitter:description" content="Podcast sobre clima, energia e economia. Duas temporadas, 28 episódios.">
+<meta name="twitter:image" content="https://www.jonatasmanzolli.com/fusu-site/assets/img/fusu-poster.webp">
+
 <link rel="icon" href="assets/img/brand/globe.png">
 <link rel="apple-touch-icon" href="assets/img/brand/globe.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600;700;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-<link rel="canonical" href="https://www.jonatasmanzolli.com/fusu-site/">
+<link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "PodcastSeries",
   "name": "FuSu — Futuro Sustentável",
+  "alternateName": "Futuro Sustentável",
   "url": "https://www.jonatasmanzolli.com/fusu-site/",
-  "description": "Podcast que aborda sustentabilidade de um modo fácil, abrangente e descontraído.",
+  "description": "Podcast sobre sustentabilidade, clima, energia e economia, com convidados especialistas.",
   "inLanguage": "pt",
   "image": "https://www.jonatasmanzolli.com/fusu-site/assets/img/fusu-poster.webp",
   "webFeed": "https://anchor.fm/s/e7f23af4/podcast/rss",
   "author": [
-    { "@type": "Person", "name": "Nato Manzolli" },
-    { "@type": "Person", "name": "Denner Déda" }
+    { "@type": "Person", "name": "Nato Manzolli", "url": "https://www.linkedin.com/in/jonatas-augusto-manzolli/" },
+    { "@type": "Person", "name": "Denner Déda", "url": "https://www.linkedin.com/in/dennerdeda/" }
   ],
+  "publisher": { "@type": "Organization", "name": "Futuro Sustentável co." },
   "sameAs": [
     "https://open.spotify.com/show/0nLbEuYuL0trgLPo5lUbRJ",
     "https://podcasts.apple.com/us/podcast/futuro-sustent%C3%A1vel/id1704469234",
@@ -42,253 +55,362 @@
 </head>
 <body>
 
-<a class="skip-link" href="#fusu">Ir para o conteúdo</a>
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a class="brand" href="#top">
-      <img src="assets/img/brand/globe.png" alt="Logótipo FuSu">
-      <span>Futuro Sustentável</span>
+      <img src="assets/img/brand/globe.png" alt="" width="34" height="34">
+      <span>FuSu</span>
     </a>
-    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="#fusu">FuSu</a></li>
-      <li><a href="episodios.html">Episódios</a></li>
-      <li><a href="blog/index.html">Blog</a></li>
-      <li><a href="#quem-somos">Quem Somos</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
+
+    <nav aria-label="Principal">
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#fusu">O FuSu</a></li>
+        <li><a href="episodios.html">Episódios</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="#quem-somos">Quem somos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav__cta">
+      <a class="btn btn--light btn--sm" href="episodios.html">Ouvir agora</a>
+    </div>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span>
+    </button>
   </div>
 </header>
 
-<main id="top">
+<main id="conteudo">
+  <a id="top"></a>
 
-  <!-- HERO -->
+  <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="hero__bg"></div>
-    <div class="hero__veil"></div>
-    <div class="hero__content">
-      <h1 class="hero__title">
-        <img src="assets/img/brand/fusu-word.png" alt="FUSU — Podcast" width="900" height="310">
-      </h1>
-      <p class="hero__sub">Futuro Sustentável</p>
-      <p class="hero__desc">Sustentabilidade de um jeito que você nunca ouviu antes. Duas temporadas, 28 episódios sobre clima, energia e o futuro que ainda dá para construir.</p>
-      <div class="hero__cta">
-        <a class="btn btn--primary" href="episodios.html">Ouvir episódios</a>
-        <a class="btn btn--ghost" href="#fusu">Saber mais</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOBRE -->
-  <section class="section" id="fusu">
-    <div class="wrap about reveal">
+    <div class="wrap hero__grid">
       <div>
-        <h2 class="section-title">Rumo a um caminho sustentável</h2>
-        <p>O Futuro Sustentável (FuSu) é um podcast que aborda sustentabilidade de um modo fácil, abrangente e descontraído. Nosso maior objetivo é levar, para o maior número de pessoas possível, informações a respeito do assunto mais importante do nosso século: a sobrevivência e resiliência humana perante as mudanças climáticas.</p>
-        <p>Para isso, propomos um bate-papo semanal com você e com alguns convidados! Pretendemos surpreender você desse lado com novidades nos mais diversos prismas relacionados ao desenvolvimento sustentável.</p>
-        <ul class="tags">
-          <li>Antropoceno</li>
-          <li>Cidades Inteligentes</li>
-          <li>Transição Energética</li>
-          <li>Norte x Sul global</li>
-          <li>Justiça climática</li>
-          <li>Economia Circular</li>
-        </ul>
+        <img class="hero__wordmark" src="assets/img/brand/fusu-word.png" alt="FuSu Podcast" width="900" height="310">
+        <h1 class="hero__title">Sustentabilidade de um jeito que você <em>nunca ouviu antes</em></h1>
+        <p class="hero__lead">Conversas com quem pesquisa e pratica clima, energia e economia — sem jargão e sem discurso pronto. Entrevistas longas e Pílulas de cinco minutos, para ouvir no trajeto ou na fila do café.</p>
+
+        <div class="hero__actions">
+          <a class="btn btn--light" href="episodios.html">Ouvir agora</a>
+          <a class="btn btn--ghost" href="#fusu">Conhecer o projeto</a>
+        </div>
+
+        <p class="hero__proof">
+          <img src="assets/img/edp.png" alt="" width="76" height="40" loading="lazy">
+          <span><strong>Menção Honrosa</strong> no prémio Escola da Energia da Fundação EDP, 2025.</span>
+        </p>
       </div>
-      <div class="about__art">
-        <img src="assets/img/fusu-poster.webp" alt="Cartaz do podcast FuSu — Futuro Sustentável" loading="lazy">
+
+      <div class="hero__art">
+        <img class="hero__photo" src="assets/img/hero.webp" alt="Vista aérea de um parque solar cercado por vegetação" width="1920" height="1280" fetchpriority="high">
+        <a class="hero__badge" id="heroLatest" href="episodios.html" hidden>
+          <img id="heroLatestCover" src="assets/img/brand/globe.png" alt="" width="64" height="64">
+          <span>
+            <span class="label"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span> Último episódio</span>
+            <span class="title" id="heroLatestTitle">Ver todos os episódios</span>
+          </span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- EPISÓDIOS -->
-  <section class="section section--dark" id="episodios">
-    <div class="wrap reveal">
-      <h2 class="section-title">Episódios</h2>
-      <p class="lead">Duas temporadas, 28 episódios entre conversas longas e Pílulas de Sustentabilidade. Ouça direto aqui no site ou no seu agregador favorito.</p>
-
-      <div class="ep-teaser" id="epTeaser" data-limit="4"></div>
-
-      <p style="margin-top:32px">
-        <a class="btn btn--primary" href="episodios.html">Ver todos os episódios</a>
-      </p>
-
-      <ul class="platforms">
-        <li><a href="https://open.spotify.com/show/0nLbEuYuL0trgLPo5lUbRJ" target="_blank" rel="noopener">Spotify</a></li>
-        <li><a href="https://podcasts.apple.com/us/podcast/futuro-sustent%C3%A1vel/id1704469234" target="_blank" rel="noopener">Apple Podcasts</a></li>
-        <li><a href="https://www.deezer.com/en/show/1000211035" target="_blank" rel="noopener">Deezer</a></li>
-      </ul>
+  <!-- ============ NÚMEROS ============ -->
+  <section class="facts" aria-label="O FuSu em números">
+    <div class="wrap">
+      <dl class="facts__list">
+        <div>
+          <dt>Temporadas</dt>
+          <dd>2<small>A segunda no ar desde setembro de 2025</small></dd>
+        </div>
+        <div>
+          <dt>Episódios</dt>
+          <dd id="factEpisodes">28<small>Entrevistas e Pílulas de Sustentabilidade</small></dd>
+        </div>
+        <div>
+          <dt>Horas de conversa</dt>
+          <dd id="factHours">11<small>Com pesquisadores, empresas e ativistas</small></dd>
+        </div>
+        <div>
+          <dt>Reconhecimento</dt>
+          <dd>EDP<small>Menção Honrosa, Escola da Energia 2025</small></dd>
+        </div>
+      </dl>
     </div>
   </section>
 
-  <!-- QUEM SOMOS -->
-  <section class="section section--alt" id="quem-somos">
-    <div class="wrap reveal">
-      <h2 class="section-title">Nosso time</h2>
-      <p class="lead">Nós somos um time de podcast apaixonado por sustentabilidade, buscando conscientizar as pessoas sobre a importância de cuidar do nosso planeta através de conversas e entrevistas com especialistas. Nosso objetivo é inspirar ações para um futuro mais sustentável.</p>
+  <!-- ============ EPISÓDIO EM DESTAQUE ============ -->
+  <section class="section section--dark" id="destaque" aria-labelledby="destaque-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Em destaque</p>
+        <h2 class="section-title" id="destaque-h">Comece por aqui</h2>
+      </div>
+      <div class="featured" id="featured">
+        <p class="lead">A carregar o episódio…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EPISÓDIOS RECENTES ============ -->
+  <section class="section" id="episodios" aria-labelledby="episodios-h">
+    <div class="wrap">
+      <div class="section-head section-head--split">
+        <div>
+          <p class="eyebrow">Episódios recentes</p>
+          <h2 class="section-title" id="episodios-h">Entrevistas longas e pílulas curtas</h2>
+          <p class="lead" style="margin-top:16px">As <strong>entrevistas</strong> trazem convidadas e convidados que trabalham com clima, energia e economia. As <strong>Pílulas</strong> destrincham uma notícia em cinco minutos.</p>
+        </div>
+        <a class="btn btn--outline" href="episodios.html">Ver os 28 episódios</a>
+      </div>
+
+      <ol class="ep-rows" id="epRows" data-limit="5">
+        <li><p class="lead">A carregar os episódios…</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ TEMAS ============ -->
+  <section class="section section--alt" id="temas" aria-labelledby="temas-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Sobre o que falamos</p>
+        <h2 class="section-title" id="temas-h">Seis frentes, uma pergunta só</h2>
+        <p class="lead">Como é que se vive bem sem consumir o planeta? Cada tema abre a busca já filtrada nos episódios.</p>
+      </div>
+
+      <div class="themes">
+        <a class="theme" href="episodios.html?q=energia">
+          <span class="theme__num">01</span>
+          <span class="theme__name">Transição energética</span>
+          <p class="theme__text">Renováveis, hidrogénio verde, nuclear e o que ainda falta para sair dos fósseis.</p>
+        </a>
+        <a class="theme" href="episodios.html?q=COP">
+          <span class="theme__num">02</span>
+          <span class="theme__name">Clima e política</span>
+          <p class="theme__text">Das promessas das COP ao Acordo de Paris: o que foi prometido e o que foi cumprido.</p>
+        </a>
+        <a class="theme" href="episodios.html?q=ciclo%20de%20vida">
+          <span class="theme__num">03</span>
+          <span class="theme__name">Consumo e circularidade</span>
+          <p class="theme__text">Avaliação de ciclo de vida, fast fashion e o custo ambiental escondido nas coisas.</p>
+        </a>
+        <a class="theme" href="episodios.html?q=bem-estar">
+          <span class="theme__num">04</span>
+          <span class="theme__name">Economia e bem-estar</span>
+          <p class="theme__text">Modelos económicos que colocam as pessoas — e não o crescimento — no centro.</p>
+        </a>
+        <a class="theme" href="episodios.html?q=mobilidade">
+          <span class="theme__num">05</span>
+          <span class="theme__name">Cidades e mobilidade</span>
+          <p class="theme__text">Carros elétricos, transporte público e cidades pensadas para quem mora nelas.</p>
+        </a>
+        <a class="theme" href="episodios.html?q=inova%C3%A7%C3%A3o">
+          <span class="theme__num">06</span>
+          <span class="theme__name">Soluções na prática</span>
+          <p class="theme__text">Inovação, projetos de impacto e gente que já está a resolver o problema.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MANIFESTO ============ -->
+  <section class="section" id="fusu" aria-labelledby="fusu-h">
+    <div class="wrap manifesto">
+      <div class="manifesto__text">
+        <p class="eyebrow">O projeto</p>
+        <h2 class="section-title" id="fusu-h" style="margin-bottom:24px">Rumo a um caminho sustentável</h2>
+        <blockquote class="manifesto__quote">Ciência do clima explicada em conversa, não em palestra.</blockquote>
+        <p>O FuSu nasceu de uma constatação simples: o assunto mais importante deste século costuma ser contado de forma difícil, distante ou catastrófica. Aqui é diferente — sustentabilidade entra pela conversa, com humor e com dados.</p>
+        <p>A cada episódio, chamamos alguém que trabalha com o tema — pesquisadoras, engenheiros, ativistas, empresas — para traduzir o que está em jogo e o que dá para fazer. Nas Pílulas, pegamos uma notícia da semana e mostramos o que ela significa na prática.</p>
+        <p>O objetivo não é convencer ninguém a salvar o mundo sozinho, e sim dar contexto suficiente para escolher melhor: no voto, no trabalho e no carrinho de compras.</p>
+        <p style="margin-top:24px"><a class="link-arrow" href="episodios.html">Ouvir o primeiro episódio</a></p>
+      </div>
+      <div class="manifesto__art">
+        <img src="assets/img/fusu-poster.webp" alt="Cartaz do podcast FuSu — Futuro Sustentável" width="900" height="1404" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EQUIPA ============ -->
+  <section class="section section--alt" id="quem-somos" aria-labelledby="time-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Quem somos</p>
+        <h2 class="section-title" id="time-h">Quatro pessoas, um microfone</h2>
+        <p class="lead">Um time apaixonado por sustentabilidade, que conversa com especialistas para transformar assunto complexo em pauta do dia a dia.</p>
+      </div>
 
       <div class="team">
         <article class="member">
-          <img src="assets/img/nato.webp" alt="Nato Manzolli" loading="lazy">
-          <div class="member__body">
-            <p class="member__role">Host &amp; Editor</p>
-            <h3 class="member__name">Nato Manzolli</h3>
-            <p class="member__bio">Sou apaixonado por sustentabilidade e tecnologia, e acredito que o desenvolvimento sustentável é fundamental para um futuro justo e digno para todas as pessoas. Minha área de atuação é mobilidade sustentável e optimização.</p>
-            <a class="member__link" href="https://www.linkedin.com/in/jonatas-augusto-manzolli/" target="_blank" rel="noopener">LinkedIn →</a>
-          </div>
+          <img class="member__photo" src="assets/img/nato.webp" alt="Nato Manzolli" width="600" height="800" loading="lazy">
+          <p class="member__role">Apresentação e edição</p>
+          <h3 class="member__name">Nato Manzolli</h3>
+          <p class="member__bio">Trabalha com mobilidade sustentável e otimização. Conduz as entrevistas e edita os episódios.</p>
+          <a class="member__link link-arrow" href="https://www.linkedin.com/in/jonatas-augusto-manzolli/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> de Nato Manzolli</span></a>
         </article>
 
         <article class="member">
-          <img src="assets/img/denner.webp" alt="Denner Déda" loading="lazy">
-          <div class="member__body">
-            <p class="member__role">Host</p>
-            <h3 class="member__name">Denner Déda</h3>
-            <p class="member__bio">Meu objetivo é projetar soluções sustentáveis, com foco em inovação e empreendedorismo, buscando ajudar as pessoas a serem mais sustentáveis em suas vidas e intensificar o impacto socioeconômico sem consumir a Terra.</p>
-            <a class="member__link" href="https://www.linkedin.com/in/dennerdeda/" target="_blank" rel="noopener">LinkedIn →</a>
-          </div>
+          <img class="member__photo" src="assets/img/denner.webp" alt="Denner Déda" width="600" height="800" loading="lazy">
+          <p class="member__role">Apresentação</p>
+          <h3 class="member__name">Denner Déda</h3>
+          <p class="member__bio">Projeta soluções sustentáveis com foco em inovação e empreendedorismo. Divide o microfone nas entrevistas e nas Pílulas.</p>
+          <a class="member__link link-arrow" href="https://www.linkedin.com/in/dennerdeda/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> de Denner Déda</span></a>
         </article>
 
         <article class="member">
-          <img src="assets/img/amanda.webp" alt="Amanda Porto" loading="lazy">
-          <div class="member__body">
-            <p class="member__role">Creative Manager</p>
-            <h3 class="member__name">Amanda Porto</h3>
-            <p class="member__bio">Sou mentora de planejamento e desenvolvimento de projetos. Minha missão é ajudar pessoas a realizar os seus objetivos e a criar projetos de forma leve e sustentável, com produtividade e prazer.</p>
-            <a class="member__link" href="https://www.linkedin.com/in/amanda-porto-74517b1ba/" target="_blank" rel="noopener">LinkedIn →</a>
-          </div>
+          <img class="member__photo" src="assets/img/amanda.webp" alt="Amanda Porto" width="600" height="800" loading="lazy">
+          <p class="member__role">Direção criativa</p>
+          <h3 class="member__name">Amanda Porto</h3>
+          <p class="member__bio">Mentora de planejamento e desenvolvimento de projetos: ajuda a tirar ideias do papel com leveza e método.</p>
+          <a class="member__link link-arrow" href="https://www.linkedin.com/in/amanda-porto-74517b1ba/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> de Amanda Porto</span></a>
         </article>
 
         <article class="member">
-          <img src="assets/img/luiza.webp" alt="Luiza Ambrosio" loading="lazy">
-          <div class="member__body">
-            <p class="member__role">Marketing Manager</p>
-            <h3 class="member__name">Luiza Ambrosio</h3>
-            <p class="member__bio">Sou apaixonada pelo mundo e em descobrir novos lugares, rotinas, tradições, culturas e pessoas. Recentemente tenho me aventurado a trazer estas inspirações pro meu processo criativo e permitido explorar diferentes formas de viver.</p>
-          </div>
+          <img class="member__photo" src="assets/img/luiza.webp" alt="Luiza Ambrosio" width="600" height="800" loading="lazy">
+          <p class="member__role">Marketing</p>
+          <h3 class="member__name">Luiza Ambrosio</h3>
+          <p class="member__bio">Apaixonada por descobrir lugares, rotinas e culturas — e por trazer essas inspirações para o processo criativo do FuSu.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- BLOG -->
-  <section class="section" id="blog">
-    <div class="wrap reveal">
-      <h2 class="section-title">Blog</h2>
-      <p class="lead">Nosso blog oferece informações adicionais sobre os tópicos que abordamos em nosso podcast, com links para artigos, pesquisas e dicas práticas para uma vida mais consciente e sustentável. Encontre também bastidores de nossas entrevistas e informações adicionais sobre nossos convidados.</p>
+  <!-- ============ BLOG ============ -->
+  <section class="section" id="blog" aria-labelledby="blog-h">
+    <div class="wrap">
+      <div class="section-head section-head--split">
+        <div>
+          <p class="eyebrow">Blog</p>
+          <h2 class="section-title" id="blog-h">Os bastidores das conversas</h2>
+          <p class="lead" style="margin-top:16px">Contexto extra, referências e bastidores de cada entrevista — para quem quer ir além do áudio.</p>
+        </div>
+        <a class="btn btn--outline" href="blog/index.html">Ver todos os artigos</a>
+      </div>
 
-      <div class="posts posts--3">
       <!-- posts:start -->
-        <a class="post-card" href="blog/avaliacao-do-ciclo-de-vida.html">
-          <img src="assets/img/post-acv.webp" alt="Episódio: Avaliação do Ciclo de Vida" loading="lazy">
-          <div class="post-card__body">
-            <p class="post-card__meta">13 out 2025 · 1 min de leitura</p>
-            <h3 class="post-card__title">Episódio: Avaliação do Ciclo de Vida</h3>
-            <p class="post-card__excerpt">Em conversa com Jade Muller, especialista em Avaliação do Ciclo de Vida (ACV), exploramos a metodologia que permite compreender o verdadeiro custo ambiental de tudo o que produzimos e consumimos.</p>
-            <p class="chips"><span class="chip">Episódio</span><span class="chip">Economia Circular</span></p>
-          </div>
+      <a class="post-featured" href="blog/avaliacao-do-ciclo-de-vida.html">
+        <img src="assets/img/post-acv.webp" alt="" width="900" height="506" loading="lazy">
+        <div>
+          <p class="chips"><span class="chip chip--soft">Episódio</span><span class="chip chip--soft">Economia Circular</span></p>
+          <h3>Episódio: Avaliação do Ciclo de Vida</h3>
+          <p>Em conversa com Jade Muller, especialista em Avaliação do Ciclo de Vida (ACV), exploramos a metodologia que permite compreender o verdadeiro custo ambiental de tudo o que produzimos e consumimos.</p>
+          <p class="meta">13 out 2025<span>1 min de leitura</span></p>
+        </div>
+      </a>
+
+      <div class="post-list">
+        <a class="post-item" href="blog/economia-do-bem-estar.html">
+          <img src="assets/img/post-bemestar.webp" alt="" width="600" height="338" loading="lazy">
+          <p class="chips"><span class="chip chip--soft">Episódio</span></p>
+          <h3>Episódio: Economia do Bem-Estar</h3>
+          <p>Com a Dra. Susana Fonseca, da ZERO, conversamos sobre como colocar o bem-estar humano no centro das políticas e práticas económicas.</p>
+          <p class="meta">29 set 2025<span>1 min</span></p>
         </a>
-        <a class="post-card" href="blog/economia-do-bem-estar.html">
-          <img src="assets/img/post-bemestar.webp" alt="Episódio: Economia do Bem-Estar" loading="lazy">
-          <div class="post-card__body">
-            <p class="post-card__meta">29 set 2025 · 1 min de leitura</p>
-            <h3 class="post-card__title">Episódio: Economia do Bem-Estar</h3>
-            <p class="post-card__excerpt">Com a Dra. Susana Fonseca, da ZERO, conversamos sobre como colocar o bem-estar humano no centro das políticas e práticas económicas.</p>
-            <p class="chips"><span class="chip">Episódio</span><span class="chip">Economia</span></p>
-          </div>
+        <a class="post-item" href="blog/vivendo-com-o-minimo.html">
+          <img src="assets/img/post-minimalismo.webp" alt="" width="600" height="338" loading="lazy">
+          <p class="chips"><span class="chip chip--soft">Episódio</span></p>
+          <h3>Episódio: Vivendo com o mínimo</h3>
+          <p>A 2ª temporada estreou com foco em minimalismo, ao lado de Ana Milhazes, criadora do Lixo Zero Portugal e autora de "Vida Lixo Zero".</p>
+          <p class="meta">18 set 2025<span>1 min</span></p>
         </a>
-        <a class="post-card" href="blog/vivendo-com-o-minimo.html">
-          <img src="assets/img/post-minimalismo.webp" alt="Episódio: Vivendo com o mínimo" loading="lazy">
-          <div class="post-card__body">
-            <p class="post-card__meta">18 set 2025 · 1 min de leitura</p>
-            <h3 class="post-card__title">Episódio: Vivendo com o mínimo</h3>
-            <p class="post-card__excerpt">A 2ª temporada estreou com foco em minimalismo, ao lado de Ana Milhazes, criadora do Lixo Zero Portugal e autora de "Vida Lixo Zero".</p>
-            <p class="chips"><span class="chip">Episódio</span><span class="chip">Consumo Consciente</span></p>
-          </div>
-        </a>
+      </div>
       <!-- posts:end -->
-      </div>
-
-      <p style="margin-top:36px">
-        <a class="btn btn--outline" href="blog/index.html">Ver todos os posts</a>
-      </p>
     </div>
   </section>
 
-  <!-- CONTATO -->
-  <section class="section section--alt" id="contato">
-    <div class="wrap contact reveal">
-      <div>
-        <h2 class="section-title">Fale com a gente</h2>
-        <p class="lead">Se você é um ouvinte do nosso podcast e gostaria de contribuir com o programa, estamos abertos a novas ideias e sugestões para promover um futuro mais sustentável. Queremos criar um espaço colaborativo e trabalhar juntos para abordar tópicos relevantes e convidar especialistas em sustentabilidade. Empresas e organizações que compartilham nossos valores também são bem-vindas como patrocinadores, basta entrar em contato para discutir as possibilidades de parceria.</p>
-      </div>
-
-      <!-- Troque a action pelo seu endpoint Formspree/Basin. Ver README. -->
-      <form class="form" action="https://formspree.io/f/SEU_ID_AQUI" method="POST">
-        <div class="form__row">
-          <div class="field">
-            <label for="nome">Primeiro Nome</label>
-            <input id="nome" name="nome" type="text" required>
-          </div>
-          <div class="field">
-            <label for="sobrenome">Sobrenome</label>
-            <input id="sobrenome" name="sobrenome" type="text">
-          </div>
-        </div>
-        <div class="form__row">
-          <div class="field">
-            <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" required>
-          </div>
-          <div class="field">
-            <label for="telefone">Telefone</label>
-            <input id="telefone" name="telefone" type="tel">
-          </div>
-        </div>
-        <div class="field">
-          <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="mensagem" required></textarea>
-        </div>
-        <button class="btn btn--primary" type="submit">Enviar</button>
-        <p class="form__note">Ao enviar, você concorda em ser contactado por e-mail.</p>
-      </form>
-    </div>
-  </section>
-
-  <!-- APOIO -->
-  <section class="support" id="apoio">
-    <div class="wrap support__inner reveal">
+  <!-- ============ APOIO ============ -->
+  <section class="support" id="apoio" aria-labelledby="apoio-h">
+    <div class="wrap support__inner">
       <a class="support__logo" href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">
-        <img src="assets/img/edp.png" alt="Fundação EDP" loading="lazy">
+        <img src="assets/img/edp.png" alt="Fundação EDP" width="400" height="209" loading="lazy">
       </a>
       <div>
-        <p class="support__label">Apoio</p>
-        <h2 class="support__title">O FuSu é apoiado pela Fundação EDP</h2>
-        <p class="support__text">A Fundação EDP apoia o Futuro Sustentável através do programa <strong>Escola da Energia</strong>, que distinguiu o podcast com uma <strong>Menção Honrosa</strong> entre dezenas de candidaturas de norte a sul de Portugal. Esse apoio é o que mantém a 2ª temporada de pé — e o que nos permite continuar a levar sustentabilidade a mais gente, de graça.</p>
-        <ul class="support__badges">
-          <li><strong>Menção Honrosa</strong> · Prémio Escola da Energia</li>
-          <li>Fundação EDP · <strong>2025</strong></li>
-        </ul>
-        <p class="support__cta">
-          <a class="btn btn--ghost" href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">Conhecer a Fundação EDP</a>
-          <a class="btn btn--ghost" href="blog/mencao-honrosa-fundacao-edp.html">Ler sobre o prémio</a>
+        <p class="eyebrow">Apoio institucional</p>
+        <h2 class="support__title" id="apoio-h">Fundação EDP · Escola da Energia</h2>
+        <p class="support__text">O FuSu recebeu uma <strong>Menção Honrosa</strong> no prémio Escola da Energia da Fundação EDP, em 2025, entre dezenas de candidaturas de norte a sul de Portugal. O apoio ajuda a sustentar a produção da segunda temporada.</p>
+        <p class="support__note">A pauta e as opiniões dos episódios são de responsabilidade exclusiva da equipa do FuSu.</p>
+        <p class="support__links">
+          <a class="btn btn--ghost btn--sm" href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">Site da Fundação EDP</a>
+          <a class="btn btn--ghost btn--sm" href="blog/mencao-honrosa-fundacao-edp.html">Ler sobre o prémio</a>
         </p>
       </div>
     </div>
   </section>
 
+  <!-- ============ CONTATO ============ -->
+  <section class="section section--alt" id="contato" aria-labelledby="contato-h">
+    <div class="wrap contact">
+      <div class="contact__aside">
+        <p class="eyebrow">Contato</p>
+        <h2 class="section-title" id="contato-h">Fale com a gente</h2>
+        <p class="lead" style="margin-top:16px">Sugestão de pauta, indicação de convidado, imprensa ou parceria: a caixa de entrada está aberta.</p>
+        <ul>
+          <li>Respondemos em até uma semana.</li>
+          <li>Empresas e organizações que compartilham os nossos valores podem propor patrocínio.</li>
+          <li>Prefere redes sociais? Estamos no <a href="https://www.instagram.com/fusupodcast/" target="_blank" rel="noopener">Instagram</a> e no <a href="https://www.linkedin.com/company/fusupodcast/" target="_blank" rel="noopener">LinkedIn</a>.</li>
+        </ul>
+      </div>
+
+      <!-- Troque SEU_ID_AQUI pelo ID do formulário no Formspree. Ver README. -->
+      <form class="form" id="contactForm" action="https://formspree.io/f/SEU_ID_AQUI" method="POST" novalidate>
+        <div class="form__row">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" required aria-describedby="erro-nome">
+            <span class="field__error" id="erro-nome"></span>
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="erro-email">
+            <span class="field__error" id="erro-email"></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="assunto">Assunto</label>
+          <select id="assunto" name="assunto" required aria-describedby="erro-assunto">
+            <option value="">Selecione…</option>
+            <option>Sugestão de tema</option>
+            <option>Indicação de convidado</option>
+            <option>Imprensa</option>
+            <option>Parceria</option>
+            <option>Patrocínio</option>
+            <option>Outro</option>
+          </select>
+          <span class="field__error" id="erro-assunto"></span>
+        </div>
+
+        <div class="field">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" required aria-describedby="erro-mensagem"></textarea>
+          <span class="field__error" id="erro-mensagem"></span>
+        </div>
+
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+
+        <div>
+          <button class="btn" type="submit">Enviar mensagem</button>
+        </div>
+        <p class="form__note">Ao enviar, você concorda em ser contactado por e-mail sobre esta mensagem.</p>
+      </form>
+    </div>
+  </section>
 </main>
 
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
       <div>
-        <img class="footer__logo" src="assets/img/brand/logo-full.png" alt="FuSu — Futuro Sustentável Podcast" loading="lazy">
-        <p class="footer__tagline">Sustentabilidade de um jeito que você nunca ouviu antes.</p>
-        <p class="footer__about">Um podcast sobre clima, energia e o futuro que ainda dá para construir.</p>
+        <img class="footer__logo" src="assets/img/brand/logo-full.png" alt="FuSu — Futuro Sustentável Podcast" width="520" height="587" loading="lazy">
+        <p class="footer__about">Podcast sobre clima, energia e economia, com conversas de quem pesquisa e pratica sustentabilidade.</p>
       </div>
       <div>
-        <h3>Ouça</h3>
+        <h2>Ouvir</h2>
         <ul>
           <li><a href="episodios.html">Todos os episódios</a></li>
           <li><a href="https://open.spotify.com/show/0nLbEuYuL0trgLPo5lUbRJ" target="_blank" rel="noopener">Spotify</a></li>
@@ -298,21 +420,27 @@
         </ul>
       </div>
       <div>
-        <h3>Siga</h3>
+        <h2>Navegar</h2>
+        <ul>
+          <li><a href="#fusu">O projeto</a></li>
+          <li><a href="#quem-somos">Quem somos</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Seguir</h2>
         <ul>
           <li><a href="https://www.instagram.com/fusupodcast/" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://www.linkedin.com/company/fusupodcast/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="#contato">Fale com a gente</a></li>
+          <li><a href="#apoio">Apoio: Fundação EDP</a></li>
         </ul>
       </div>
     </div>
+
     <div class="footer__bottom">
-      <span>© 2025 Futuro Sustentável co.</span>
-      <nav>
-        <a href="#top">Início</a>
-        <a href="episodios.html">Episódios</a>
-        <a href="blog/index.html">Blog</a>
-      </nav>
+      <span>© <span data-year>2025</span> Futuro Sustentável co.</span>
+      <span>Feito em HTML, CSS e um microfone.</span>
     </div>
   </div>
 </footer>

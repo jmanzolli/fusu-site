@@ -3,36 +3,64 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Página não encontrada | FuSu</title>
 <meta name="robots" content="noindex">
+<title>Página não encontrada | FuSu</title>
+<meta name="description" content="Esta página não existe. Veja os episódios do FuSu.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FuSu — Futuro Sustentável">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Página não encontrada | FuSu">
+<meta property="og:description" content="Esta página não existe. Veja os episódios do FuSu.">
+<meta property="og:image" content="https://www.jonatasmanzolli.com/fusu-site/assets/img/fusu-poster.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Página não encontrada | FuSu">
+<meta name="twitter:description" content="Esta página não existe. Veja os episódios do FuSu.">
+<meta name="twitter:image" content="https://www.jonatasmanzolli.com/fusu-site/assets/img/fusu-poster.webp">
 <link rel="icon" href="/fusu-site/assets/img/brand/globe.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600;700;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/fusu-site/assets/css/style.css">
 </head>
 <body>
 
-<header class="nav">
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+<header class="nav" id="nav">
   <div class="nav__inner">
-    <a class="brand" href="/fusu-site/">
-      <img src="/fusu-site/assets/img/brand/globe.png" alt="Logótipo FuSu">
-      <span>Futuro Sustentável</span>
+    <a class="brand" href="/fusu-site/index.html">
+      <img src="/fusu-site/assets/img/brand/globe.png" alt="" width="34" height="34">
+      <span>FuSu</span>
     </a>
-    <ul class="nav__links">
-      <li><a href="/fusu-site/episodios.html">Episódios</a></li>
-      <li><a href="/fusu-site/blog/index.html">Blog</a></li>
-    </ul>
+
+    <nav aria-label="Principal">
+      <ul class="nav__links" id="navLinks">
+        <li><a href="/fusu-site/index.html#fusu">O FuSu</a></li>
+        <li><a href="/fusu-site/episodios.html">Episódios</a></li>
+        <li><a href="/fusu-site/blog/index.html">Blog</a></li>
+        <li><a href="/fusu-site/index.html#quem-somos">Quem somos</a></li>
+        <li><a href="/fusu-site/index.html#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav__cta">
+      <a class="btn btn--light btn--sm" href="/fusu-site/episodios.html">Ouvir agora</a>
+    </div>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span>
+    </button>
   </div>
 </header>
 
-<main>
+<main id="conteudo">
   <section class="page-hero">
     <div class="wrap">
-      <h1>404</h1>
-      <p class="lead">Esta página não existe — ou mudou de lugar. Mas o planeta continua aqui, e os episódios também.</p>
-      <p style="margin-top:32px; display:flex; gap:12px; flex-wrap:wrap">
-        <a class="btn btn--primary" href="/fusu-site/episodios.html">Ouvir episódios</a>
+      <p class="eyebrow">Erro 404</p>
+      <h1>Esta página não existe</h1>
+      <p class="lead">O endereço mudou ou nunca existiu. O planeta continua aqui — e os episódios também.</p>
+      <p style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn--light" href="/fusu-site/episodios.html">Ouvir episódios</a>
         <a class="btn btn--ghost" href="/fusu-site/">Voltar ao início</a>
       </p>
     </div>
@@ -41,12 +69,47 @@
 
 <footer class="footer">
   <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <img class="footer__logo" src="/fusu-site/assets/img/brand/logo-full.png" alt="FuSu — Futuro Sustentável Podcast" width="520" height="587" loading="lazy">
+        <p class="footer__about">Podcast sobre clima, energia e economia, com conversas de quem pesquisa e pratica sustentabilidade.</p>
+      </div>
+      <div>
+        <h2>Ouvir</h2>
+        <ul>
+          <li><a href="/fusu-site/episodios.html">Todos os episódios</a></li>
+          <li><a href="https://open.spotify.com/show/0nLbEuYuL0trgLPo5lUbRJ" target="_blank" rel="noopener">Spotify</a></li>
+          <li><a href="https://podcasts.apple.com/us/podcast/futuro-sustent%C3%A1vel/id1704469234" target="_blank" rel="noopener">Apple Podcasts</a></li>
+          <li><a href="https://www.deezer.com/en/show/1000211035" target="_blank" rel="noopener">Deezer</a></li>
+          <li><a href="https://anchor.fm/s/e7f23af4/podcast/rss" target="_blank" rel="noopener">Feed RSS</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Navegar</h2>
+        <ul>
+          <li><a href="/fusu-site/index.html#fusu">O projeto</a></li>
+          <li><a href="/fusu-site/index.html#quem-somos">Quem somos</a></li>
+          <li><a href="/fusu-site/blog/index.html">Blog</a></li>
+          <li><a href="/fusu-site/index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Seguir</h2>
+        <ul>
+          <li><a href="https://www.instagram.com/fusupodcast/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/fusupodcast/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">Apoio: Fundação EDP</a></li>
+        </ul>
+      </div>
+    </div>
+
     <div class="footer__bottom">
-      <span>© 2025 by Futuro Sustentável co.</span>
-      <span>FUSU PODCAST</span>
+      <span>© <span data-year>2025</span> Futuro Sustentável co.</span>
+      <span>Feito em HTML, CSS e um microfone.</span>
     </div>
   </div>
 </footer>
 
+<script src="/fusu-site/assets/js/main.js"></script>
 </body>
 </html>

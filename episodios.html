@@ -4,48 +4,80 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Episódios | FuSu — Futuro Sustentável</title>
-<meta name="description" content="Todos os episódios do podcast FuSu — Futuro Sustentável: duas temporadas de conversas sobre sustentabilidade, clima e energia, mais as Pílulas de Sustentabilidade. Ouça direto no site.">
+<meta name="description" content="Os 28 episódios do FuSu: entrevistas com pesquisadores e profissionais de clima, energia e economia, e Pílulas de Sustentabilidade de cinco minutos. Ouça direto no site.">
+<link rel="canonical" href="https://www.jonatasmanzolli.com/fusu-site/episodios.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FuSu — Futuro Sustentável">
+<meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Episódios | FuSu — Futuro Sustentável">
-<meta property="og:description" content="Todos os episódios do FuSu com player e playlist — ouça sem sair do site.">
-<meta property="og:image" content="assets/img/fusu-poster.webp">
+<meta property="og:description" content="Duas temporadas, 28 episódios. Ouça com player e playlist, sem sair do site.">
+<meta property="og:url" content="https://www.jonatasmanzolli.com/fusu-site/episodios.html">
+<meta property="og:image" content="https://www.jonatasmanzolli.com/fusu-site/assets/img/fusu-poster.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Episódios | FuSu">
+<meta name="twitter:description" content="Duas temporadas, 28 episódios do podcast FuSu.">
+<meta name="twitter:image" content="https://www.jonatasmanzolli.com/fusu-site/assets/img/fusu-poster.webp">
+
 <link rel="icon" href="assets/img/brand/globe.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600;700;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-<link rel="canonical" href="https://www.jonatasmanzolli.com/fusu-site/episodios.html">
+<link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.jonatasmanzolli.com/fusu-site/" },
+    { "@type": "ListItem", "position": 2, "name": "Episódios", "item": "https://www.jonatasmanzolli.com/fusu-site/episodios.html" }
+  ]
+}
+</script>
 </head>
-<body class="has-player">
+<body>
 
-<a class="skip-link" href="#epList">Ir para a lista de episódios</a>
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-<header class="nav">
+<header class="nav" id="nav">
   <div class="nav__inner">
     <a class="brand" href="index.html">
-      <img src="assets/img/brand/globe.png" alt="Logótipo FuSu">
-      <span>Futuro Sustentável</span>
+      <img src="assets/img/brand/globe.png" alt="" width="34" height="34">
+      <span>FuSu</span>
     </a>
-    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="index.html#fusu">FuSu</a></li>
-      <li><a href="episodios.html" class="is-active">Episódios</a></li>
-      <li><a href="blog/index.html">Blog</a></li>
-      <li><a href="index.html#quem-somos">Quem Somos</a></li>
-      <li><a href="index.html#contato">Contato</a></li>
-    </ul>
+
+    <nav aria-label="Principal">
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html#fusu">O FuSu</a></li>
+        <li><a href="episodios.html" class="is-active">Episódios</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="index.html#quem-somos">Quem somos</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav__cta">
+      <a class="btn btn--light btn--sm" href="#epList">Ouvir agora</a>
+    </div>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span>
+    </button>
   </div>
 </header>
 
-<main>
-  <section class="page-hero">
+<main id="conteudo">
+  <header class="page-hero">
     <div class="wrap">
-      <h1>Episódios</h1>
-      <p class="lead">Duas temporadas de conversas sobre sustentabilidade, energia e clima — mais as <strong>Pílulas de Sustentabilidade</strong>, episódios curtos de 5 minutos. Dá play em qualquer um: ele toca aqui mesmo e a lista continua sozinha.</p>
+      <p class="crumbs"><a href="index.html">Início</a> / Episódios</p>
+      <h1>Todos os episódios</h1>
+      <p class="lead">Entrevistas longas com quem trabalha em clima, energia e economia — e <strong>Pílulas de Sustentabilidade</strong>, episódios de cinco minutos sobre uma notícia de cada vez. Dá play em qualquer um: toca aqui mesmo e a lista continua sozinha.</p>
 
-      <dl class="stats" id="stats">
-        <div><dt>Episódios</dt><dd id="statTotal">—</dd></div>
-        <div><dt>Temporadas</dt><dd id="statSeasons">—</dd></div>
-        <div><dt>Horas de conversa</dt><dd id="statHours">—</dd></div>
+      <dl class="facts__list" id="stats" style="padding-block:32px 0">
+        <div><dt>Episódios</dt><dd id="statTotal">28</dd></div>
+        <div><dt>Temporadas</dt><dd id="statSeasons">2</dd></div>
+        <div><dt>Horas</dt><dd id="statHours">11</dd></div>
       </dl>
 
       <ul class="platforms">
@@ -55,28 +87,27 @@
         <li><a href="https://anchor.fm/s/e7f23af4/podcast/rss" target="_blank" rel="noopener">Feed RSS</a></li>
       </ul>
     </div>
-  </section>
+  </header>
 
   <section class="section">
     <div class="wrap">
-
       <div class="filters">
         <div class="filters__group" role="group" aria-label="Filtrar por tipo">
-          <button class="chip-btn is-on" data-kind="all">Todos</button>
-          <button class="chip-btn" data-kind="episodio">Episódios</button>
-          <button class="chip-btn" data-kind="pilula">Pílulas</button>
+          <button class="chip-btn is-on" data-kind="all" aria-pressed="true">Todos</button>
+          <button class="chip-btn" data-kind="episodio" aria-pressed="false">Entrevistas</button>
+          <button class="chip-btn" data-kind="pilula" aria-pressed="false">Pílulas</button>
         </div>
 
         <div class="filters__group" role="group" aria-label="Filtrar por temporada">
-          <button class="chip-btn is-on" data-season="all">Todas temporadas</button>
-          <button class="chip-btn" data-season="2">2ª</button>
-          <button class="chip-btn" data-season="1">1ª</button>
+          <button class="chip-btn is-on" data-season="all" aria-pressed="true">Todas temporadas</button>
+          <button class="chip-btn" data-season="2" aria-pressed="false">2ª</button>
+          <button class="chip-btn" data-season="1" aria-pressed="false">1ª</button>
         </div>
 
         <div class="filters__right">
           <label class="visually-hidden" for="search">Buscar episódio</label>
           <input id="search" type="search" placeholder="Buscar por título ou tema…" autocomplete="off">
-          <label class="visually-hidden" for="sort">Ordenar</label>
+          <label class="visually-hidden" for="sort">Ordenar episódios</label>
           <select id="sort">
             <option value="new">Mais recentes</option>
             <option value="old">Mais antigos</option>
@@ -89,11 +120,11 @@
       <p class="filters__count" id="count" aria-live="polite"></p>
 
       <div class="ep-actions">
-        <button class="btn btn--primary" id="playAll">▶ Tocar a lista</button>
-        <button class="btn btn--outline" id="shuffle">🔀 Aleatório</button>
+        <button class="btn btn--light" id="playAll">▶ Tocar a lista</button>
+        <button class="btn btn--outline" id="shuffle">Aleatório</button>
       </div>
 
-      <ol class="ep-list" id="epList"></ol>
+      <ol class="ep-rows" id="epList"></ol>
 
       <noscript>
         <p class="lead">Ative o JavaScript para usar o player, ou ouça no
@@ -104,20 +135,20 @@
 </main>
 
 <!-- Player fixo -->
-<div class="player-bar" id="playerBar" hidden>
+<div class="player-bar" id="playerBar" hidden aria-label="Player de áudio">
   <div class="player-bar__inner">
-    <img class="player-bar__cover" id="pbCover" src="assets/img/brand/globe.png" alt="">
-    <div class="player-bar__meta">
+    <img class="player-bar__cover" id="pbCover" src="assets/img/brand/globe.png" alt="" width="52" height="52">
+    <div>
       <p class="player-bar__title" id="pbTitle">—</p>
       <p class="player-bar__sub" id="pbSub"></p>
     </div>
 
     <div class="player-bar__controls">
-      <button id="pbPrev" title="Anterior" aria-label="Episódio anterior">⏮</button>
-      <button id="pbBack" title="Voltar 15s" aria-label="Voltar 15 segundos">⟲</button>
-      <button id="pbPlay" class="is-main" title="Tocar/Pausar" aria-label="Tocar ou pausar">▶</button>
-      <button id="pbFwd" title="Avançar 30s" aria-label="Avançar 30 segundos">⟳</button>
-      <button id="pbNext" title="Próximo" aria-label="Próximo episódio">⏭</button>
+      <button id="pbPrev" aria-label="Episódio anterior">⏮</button>
+      <button id="pbBack" aria-label="Voltar 15 segundos">⟲</button>
+      <button id="pbPlay" class="is-main" aria-label="Tocar">▶</button>
+      <button id="pbFwd" aria-label="Avançar 30 segundos">⟳</button>
+      <button id="pbNext" aria-label="Próximo episódio">⏭</button>
     </div>
 
     <div class="player-bar__seek">
@@ -127,25 +158,26 @@
     </div>
 
     <div class="player-bar__extra">
-      <button id="pbRate" title="Velocidade">1×</button>
-      <a id="pbLink" href="#" target="_blank" rel="noopener" title="Abrir no Spotify">↗</a>
-      <button id="pbClose" title="Fechar player" aria-label="Fechar player">✕</button>
+      <button id="pbRate" aria-label="Velocidade de reprodução">1×</button>
+      <a id="pbLink" href="#" aria-label="Abrir a página do episódio">↗</a>
+      <button id="pbClose" aria-label="Fechar player">✕</button>
     </div>
   </div>
   <audio id="audio" preload="none"></audio>
 </div>
 
-<section class="support">
+<section class="support" aria-labelledby="apoio-h">
   <div class="wrap support__inner">
     <a class="support__logo" href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">
-      <img src="assets/img/edp.png" alt="Fundação EDP" loading="lazy">
+      <img src="assets/img/edp.png" alt="Fundação EDP" width="400" height="209" loading="lazy">
     </a>
     <div>
-      <p class="support__label">Apoio</p>
-      <h2 class="support__title">Estes episódios existem com o apoio da Fundação EDP</h2>
-      <p class="support__text">Através do programa <strong>Escola da Energia</strong>, que distinguiu o FuSu com uma <strong>Menção Honrosa</strong> em 2025.</p>
-      <p class="support__cta">
-        <a class="btn btn--ghost" href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">Conhecer a Fundação EDP</a>
+      <p class="eyebrow">Apoio institucional</p>
+      <h2 class="support__title" id="apoio-h">Fundação EDP · Escola da Energia</h2>
+      <p class="support__text">O FuSu recebeu uma <strong>Menção Honrosa</strong> no prémio Escola da Energia da Fundação EDP, em 2025. O apoio ajuda a sustentar a produção da segunda temporada.</p>
+      <p class="support__note">A pauta e as opiniões dos episódios são de responsabilidade exclusiva da equipa do FuSu.</p>
+      <p class="support__links">
+        <a class="btn btn--ghost btn--sm" href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">Site da Fundação EDP</a>
       </p>
     </div>
   </div>
@@ -155,12 +187,11 @@
   <div class="wrap">
     <div class="footer__grid">
       <div>
-        <img class="footer__logo" src="assets/img/brand/logo-full.png" alt="FuSu — Futuro Sustentável Podcast" loading="lazy">
-        <p class="footer__tagline">Sustentabilidade de um jeito que você nunca ouviu antes.</p>
-        <p class="footer__about">Um podcast sobre clima, energia e o futuro que ainda dá para construir.</p>
+        <img class="footer__logo" src="assets/img/brand/logo-full.png" alt="FuSu — Futuro Sustentável Podcast" width="520" height="587" loading="lazy">
+        <p class="footer__about">Podcast sobre clima, energia e economia, com conversas de quem pesquisa e pratica sustentabilidade.</p>
       </div>
       <div>
-        <h3>Ouça</h3>
+        <h2>Ouvir</h2>
         <ul>
           <li><a href="episodios.html">Todos os episódios</a></li>
           <li><a href="https://open.spotify.com/show/0nLbEuYuL0trgLPo5lUbRJ" target="_blank" rel="noopener">Spotify</a></li>
@@ -170,21 +201,27 @@
         </ul>
       </div>
       <div>
-        <h3>Siga</h3>
+        <h2>Navegar</h2>
+        <ul>
+          <li><a href="index.html#fusu">O projeto</a></li>
+          <li><a href="index.html#quem-somos">Quem somos</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Seguir</h2>
         <ul>
           <li><a href="https://www.instagram.com/fusupodcast/" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://www.linkedin.com/company/fusupodcast/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="index.html#contato">Fale com a gente</a></li>
+          <li><a href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">Apoio: Fundação EDP</a></li>
         </ul>
       </div>
     </div>
+
     <div class="footer__bottom">
-      <span>© 2025 Futuro Sustentável co.</span>
-      <nav>
-        <a href="index.html">Início</a>
-        <a href="episodios.html">Episódios</a>
-        <a href="blog/index.html">Blog</a>
-      </nav>
+      <span>© <span data-year>2025</span> Futuro Sustentável co.</span>
+      <span>Feito em HTML, CSS e um microfone.</span>
     </div>
   </div>
 </footer>

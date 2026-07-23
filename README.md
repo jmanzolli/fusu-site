@@ -7,24 +7,23 @@ HTML + CSS + JS puro. Sem build, sem dependências.
 ## Estrutura
 
 ```
-index.html                     home (hero, sobre, episódios em destaque, time, blog, contato)
-episodios.html                 todos os episódios + player/playlist
+index.html                     home (hero, números, destaque, episódios, temas, manifesto, equipa, blog, apoio, contato)
+episodios.html                 lista com filtros, busca e player/playlist
+episodios/<slug>.html          uma página por episódio, com player e dados estruturados   [gerado]
+blog/index.html                lista de artigos                                            [gerado]
+blog/<slug>.html               uma página por artigo                                       [gerado]
 404.html                       página de erro
-blog/index.html                lista de todos os posts        [gerado]
-blog/<slug>.html               uma página por post            [gerado]
 assets/
-  css/style.css
-  js/main.js                   menu, animações, scroll-spy
-  js/player.js                 lista de episódios, filtros, player fixo
-  data/episodes.json           episódios vindos do RSS        [gerado]
-  data/posts.json              conteúdo do blog               [fonte da verdade]
-  img/                         imagens do site (WebP)
-  img/ep/                      capas dos episódios            [geradas]
-scripts/build_episodes.py      lê o RSS do podcast e gera episodes.json + capas
-scripts/build_blog.py          gera o blog, a home e sitemap.xml a partir de posts.json
-sitemap.xml, robots.txt        [gerados]
-.nojekyll                      impede processamento Jekyll no GitHub Pages
-CNAME.exemplo                  domínio próprio — renomear para CNAME quando o DNS estiver pronto
+  css/style.css                sistema de design (tokens, componentes, responsivo)
+  js/main.js                   menu, revelação, ano do rodapé, formulário
+  js/player.js                 destaque na home, filtros e player da lista
+  data/episodes.json           episódios vindos do RSS                                     [gerado]
+  data/posts.json              conteúdo do blog                                     [fonte da verdade]
+  img/, img/ep/, img/brand/    imagens do site, capas dos episódios, logos da marca
+scripts/template.py            nav, rodapé, <head> e faixa de apoio partilhados
+scripts/build_episodes.py      RSS -> episodes.json + capas + páginas de episódio
+scripts/build_blog.py          posts.json -> blog + destaques da home + sitemap
+sitemap.xml, robots.txt                                                                    [gerados]
 ```
 
 ## Publicar um episódio novo

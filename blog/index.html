@@ -4,15 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog | FuSu — Futuro Sustentável</title>
-<meta name="description" content="Artigos, bastidores dos episódios e informações sobre os convidados do podcast FuSu.">
+<meta name="description" content="Bastidores das entrevistas, referências e contexto extra sobre clima, energia e economia.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FuSu — Futuro Sustentável">
+<meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Blog | FuSu — Futuro Sustentável">
-<meta property="og:description" content="Artigos, bastidores dos episódios e informações sobre os convidados do podcast FuSu.">
-<meta property="og:image" content="../assets/img/post-acv.webp">
-<meta property="og:type" content="article">
+<meta property="og:description" content="Bastidores das entrevistas, referências e contexto extra sobre clima, energia e economia.">
+<meta property="og:image" content="https://www.jonatasmanzolli.com/fusu-site/assets/img/post-acv.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog | FuSu — Futuro Sustentável">
+<meta name="twitter:description" content="Bastidores das entrevistas, referências e contexto extra sobre clima, energia e economia.">
+<meta name="twitter:image" content="https://www.jonatasmanzolli.com/fusu-site/assets/img/post-acv.webp">
 <link rel="icon" href="../assets/img/brand/globe.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600;700;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="canonical" href="https://www.jonatasmanzolli.com/fusu-site/blog/">
 </head>
@@ -20,113 +26,114 @@
 
 <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-<header class="nav">
+<header class="nav" id="nav">
   <div class="nav__inner">
     <a class="brand" href="../index.html">
-      <img src="../assets/img/brand/globe.png" alt="Logótipo FuSu">
-      <span>Futuro Sustentável</span>
+      <img src="../assets/img/brand/globe.png" alt="" width="34" height="34">
+      <span>FuSu</span>
     </a>
-    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="../index.html#fusu">FuSu</a></li>
-      <li><a href="../episodios.html">Episódios</a></li>
-      <li><a href="../blog/index.html" class="is-active">Blog</a></li>
-      <li><a href="../index.html#quem-somos">Quem Somos</a></li>
-      <li><a href="../index.html#contato">Contato</a></li>
-    </ul>
+
+    <nav aria-label="Principal">
+      <ul class="nav__links" id="navLinks">
+        <li><a href="../index.html#fusu">O FuSu</a></li>
+        <li><a href="../episodios.html">Episódios</a></li>
+        <li><a href="../blog/index.html" class="is-active">Blog</a></li>
+        <li><a href="../index.html#quem-somos">Quem somos</a></li>
+        <li><a href="../index.html#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav__cta">
+      <a class="btn btn--light btn--sm" href="../episodios.html">Ouvir agora</a>
+    </div>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span>
+    </button>
   </div>
 </header>
 
 <main id="conteudo">
-  <section class="page-hero">
+  <header class="page-hero">
     <div class="wrap">
+      <p class="crumbs"><a href="../index.html">Início</a> / Blog</p>
       <h1>Blog</h1>
-      <p class="lead">Nosso blog oferece informações adicionais sobre os tópicos que abordamos em nosso podcast, com links para artigos, pesquisas e dicas práticas para uma vida mais consciente e sustentável. Encontre também bastidores de nossas entrevistas e informações adicionais sobre nossos convidados.</p>
+      <p class="lead">Bastidores das entrevistas, referências e contexto extra sobre os temas que aparecem no podcast — para quem quer ir além do áudio.</p>
     </div>
-  </section>
+  </header>
 
   <section class="section">
     <div class="wrap">
-      <div class="posts">
-        <a class="post-card" href="../blog/avaliacao-do-ciclo-de-vida.html">
-          <img src="../assets/img/post-acv.webp" alt="Episódio: Avaliação do Ciclo de Vida" loading="lazy">
-          <div class="post-card__body">
-            <p class="post-card__meta">13 out 2025 · 1 min de leitura</p>
-            <h3 class="post-card__title">Episódio: Avaliação do Ciclo de Vida</h3>
-            <p class="post-card__excerpt">Em conversa com Jade Muller, especialista em Avaliação do Ciclo de Vida (ACV), exploramos a metodologia que permite compreender o verdadeiro custo ambiental de tudo o que produzimos e consumimos.</p>
-            <p class="chips"><span class="chip">Episódio</span><span class="chip">Economia Circular</span></p>
-          </div>
+      <a class="post-featured" href="../blog/avaliacao-do-ciclo-de-vida.html">
+        <img src="../assets/img/post-acv.webp" alt="" width="900" height="506" loading="lazy">
+        <div>
+          <p class="chips"><span class="chip chip--soft">Episódio</span><span class="chip chip--soft">Economia Circular</span></p>
+          <h3>Episódio: Avaliação do Ciclo de Vida</h3>
+          <p>Em conversa com Jade Muller, especialista em Avaliação do Ciclo de Vida (ACV), exploramos a metodologia que permite compreender o verdadeiro custo ambiental de tudo o que produzimos e consumimos.</p>
+          <p class="meta">13 out 2025<span>1 min de leitura</span></p>
+        </div>
+      </a>
+
+      <div class="post-list">
+        <a class="post-item" href="../blog/economia-do-bem-estar.html">
+          <img src="../assets/img/post-bemestar.webp" alt="" width="600" height="338" loading="lazy">
+          <p class="chips"><span class="chip chip--soft">Episódio</span></p>
+          <h3>Episódio: Economia do Bem-Estar</h3>
+          <p>Com a Dra. Susana Fonseca, da ZERO, conversamos sobre como colocar o bem-estar humano no centro das políticas e práticas económicas.</p>
+          <p class="meta">29 set 2025<span>1 min</span></p>
         </a>
-        <a class="post-card" href="../blog/economia-do-bem-estar.html">
-          <img src="../assets/img/post-bemestar.webp" alt="Episódio: Economia do Bem-Estar" loading="lazy">
-          <div class="post-card__body">
-            <p class="post-card__meta">29 set 2025 · 1 min de leitura</p>
-            <h3 class="post-card__title">Episódio: Economia do Bem-Estar</h3>
-            <p class="post-card__excerpt">Com a Dra. Susana Fonseca, da ZERO, conversamos sobre como colocar o bem-estar humano no centro das políticas e práticas económicas.</p>
-            <p class="chips"><span class="chip">Episódio</span><span class="chip">Economia</span></p>
-          </div>
+        <a class="post-item" href="../blog/vivendo-com-o-minimo.html">
+          <img src="../assets/img/post-minimalismo.webp" alt="" width="600" height="338" loading="lazy">
+          <p class="chips"><span class="chip chip--soft">Episódio</span></p>
+          <h3>Episódio: Vivendo com o mínimo</h3>
+          <p>A 2ª temporada estreou com foco em minimalismo, ao lado de Ana Milhazes, criadora do Lixo Zero Portugal e autora de "Vida Lixo Zero".</p>
+          <p class="meta">18 set 2025<span>1 min</span></p>
         </a>
-        <a class="post-card" href="../blog/vivendo-com-o-minimo.html">
-          <img src="../assets/img/post-minimalismo.webp" alt="Episódio: Vivendo com o mínimo" loading="lazy">
-          <div class="post-card__body">
-            <p class="post-card__meta">18 set 2025 · 1 min de leitura</p>
-            <h3 class="post-card__title">Episódio: Vivendo com o mínimo</h3>
-            <p class="post-card__excerpt">A 2ª temporada estreou com foco em minimalismo, ao lado de Ana Milhazes, criadora do Lixo Zero Portugal e autora de "Vida Lixo Zero".</p>
-            <p class="chips"><span class="chip">Episódio</span><span class="chip">Consumo Consciente</span></p>
-          </div>
+        <a class="post-item" href="../blog/mencao-honrosa-fundacao-edp.html">
+          <img src="../assets/img/post-edp.webp" alt="" width="600" height="338" loading="lazy">
+          <p class="chips"><span class="chip chip--soft">Novidades</span></p>
+          <h3>FuSu recebe Menção Honrosa no Prémio Fundação EDP</h3>
+          <p>O FuSu recebeu uma Menção Honrosa no prémio Escola da Energia | Fundação EDP, entre dezenas de candidaturas de norte a sul do país.</p>
+          <p class="meta">10 set 2025<span>1 min</span></p>
         </a>
-        <a class="post-card" href="../blog/mencao-honrosa-fundacao-edp.html">
-          <img src="../assets/img/post-edp.webp" alt="FuSu recebe Menção Honrosa no Prémio Fundação EDP" loading="lazy">
-          <div class="post-card__body">
-            <p class="post-card__meta">10 set 2025 · 1 min de leitura</p>
-            <h3 class="post-card__title">FuSu recebe Menção Honrosa no Prémio Fundação EDP</h3>
-            <p class="post-card__excerpt">O FuSu recebeu uma Menção Honrosa no prémio Escola da Energia | Fundação EDP, entre dezenas de candidaturas de norte a sul do país.</p>
-            <p class="chips"><span class="chip">Novidades</span></p>
-          </div>
+        <a class="post-item" href="../blog/o-fusu-esta-de-volta.html">
+          <img src="../assets/img/post-volta.webp" alt="" width="600" height="338" loading="lazy">
+          <p class="chips"><span class="chip chip--soft">Novidades</span></p>
+          <h3>O FuSu está de volta!</h3>
+          <p>A 2ª temporada chegou cheia de ideias e conversas inspiradoras — com Ana Milhazes, Susana Fonseca, Jade Müller, Tayane Belém e António Coutinho.</p>
+          <p class="meta">7 set 2025<span>2 min</span></p>
         </a>
-        <a class="post-card" href="../blog/o-fusu-esta-de-volta.html">
-          <img src="../assets/img/post-volta.webp" alt="O FuSu está de volta!" loading="lazy">
-          <div class="post-card__body">
-            <p class="post-card__meta">7 set 2025 · 2 min de leitura</p>
-            <h3 class="post-card__title">O FuSu está de volta!</h3>
-            <p class="post-card__excerpt">A 2ª temporada chegou cheia de ideias e conversas inspiradoras — com Ana Milhazes, Susana Fonseca, Jade Müller, Tayane Belém e António Coutinho.</p>
-            <p class="chips"><span class="chip">Novidades</span><span class="chip">Temporada 2</span></p>
-          </div>
+        <a class="post-item" href="../blog/sustentabilidade-uma-missao.html">
+          <img src="../assets/img/post-missao.webp" alt="" width="600" height="338" loading="lazy">
+          <p class="chips"><span class="chip chip--soft">Conceitos</span></p>
+          <h3>Sustentabilidade: Uma missão</h3>
+          <p>Sustentabilidade busca equilíbrio entre meio ambiente, economia e sociedade — e depende de governos, empresas e de cada um de nós.</p>
+          <p class="meta">20 fev 2023<span>4 min</span></p>
         </a>
-        <a class="post-card" href="../blog/sustentabilidade-uma-missao.html">
-          <img src="../assets/img/post-missao.webp" alt="Sustentabilidade: Uma missão" loading="lazy">
-          <div class="post-card__body">
-            <p class="post-card__meta">20 fev 2023 · 4 min de leitura</p>
-            <h3 class="post-card__title">Sustentabilidade: Uma missão</h3>
-            <p class="post-card__excerpt">Sustentabilidade busca equilíbrio entre meio ambiente, economia e sociedade — e depende de governos, empresas e de cada um de nós.</p>
-            <p class="chips"><span class="chip">Conceitos</span></p>
-          </div>
-        </a>
-        <a class="post-card" href="../blog/antropoceno-e-de-comer.html">
-          <img src="../assets/img/post-antropoceno.webp" alt="Antropoceno. É de comer?" loading="lazy">
-          <div class="post-card__body">
-            <p class="post-card__meta">19 fev 2023 · 2 min de leitura</p>
-            <h3 class="post-card__title">Antropoceno. É de comer?</h3>
-            <p class="post-card__excerpt">A era geológica em que a atividade humana passou a moldar o planeta — e o que isso exige de nós.</p>
-            <p class="chips"><span class="chip">Conceitos</span><span class="chip">Antropoceno</span></p>
-          </div>
+        <a class="post-item" href="../blog/antropoceno-e-de-comer.html">
+          <img src="../assets/img/post-antropoceno.webp" alt="" width="600" height="338" loading="lazy">
+          <p class="chips"><span class="chip chip--soft">Conceitos</span></p>
+          <h3>Antropoceno. É de comer?</h3>
+          <p>A era geológica em que a atividade humana passou a moldar o planeta — e o que isso exige de nós.</p>
+          <p class="meta">19 fev 2023<span>2 min</span></p>
         </a>
       </div>
     </div>
   </section>
 </main>
 
-<section class="support">
+<section class="support" aria-labelledby="apoio-h">
   <div class="wrap support__inner">
     <a class="support__logo" href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">
-      <img src="../assets/img/edp.png" alt="Fundação EDP" loading="lazy">
+      <img src="../assets/img/edp.png" alt="Fundação EDP" width="400" height="209" loading="lazy">
     </a>
     <div>
-      <p class="support__label">Apoio</p>
-      <h2 class="support__title">O FuSu é apoiado pela Fundação EDP</h2>
-      <p class="support__text">Através do programa <strong>Escola da Energia</strong>, que distinguiu o podcast com uma <strong>Menção Honrosa</strong> em 2025.</p>
-      <p class="support__cta">
-        <a class="btn btn--ghost" href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">Conhecer a Fundação EDP</a>
+      <p class="eyebrow">Apoio institucional</p>
+      <h2 class="support__title" id="apoio-h">Fundação EDP · Escola da Energia</h2>
+      <p class="support__text">O FuSu recebeu uma <strong>Menção Honrosa</strong> no prémio Escola da Energia da Fundação EDP, em 2025. O apoio ajuda a sustentar a produção da segunda temporada.</p>
+      <p class="support__note">A pauta e as opiniões dos episódios são de responsabilidade exclusiva da equipa do FuSu.</p>
+      <p class="support__links">
+        <a class="btn btn--ghost btn--sm" href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">Site da Fundação EDP</a>
       </p>
     </div>
   </div>
@@ -136,12 +143,11 @@
   <div class="wrap">
     <div class="footer__grid">
       <div>
-        <img class="footer__logo" src="../assets/img/brand/logo-full.png" alt="FuSu — Futuro Sustentável Podcast" loading="lazy">
-        <p class="footer__tagline">Sustentabilidade de um jeito que você nunca ouviu antes.</p>
-        <p class="footer__about">Um podcast sobre clima, energia e o futuro que ainda dá para construir.</p>
+        <img class="footer__logo" src="../assets/img/brand/logo-full.png" alt="FuSu — Futuro Sustentável Podcast" width="520" height="587" loading="lazy">
+        <p class="footer__about">Podcast sobre clima, energia e economia, com conversas de quem pesquisa e pratica sustentabilidade.</p>
       </div>
       <div>
-        <h3>Ouça</h3>
+        <h2>Ouvir</h2>
         <ul>
           <li><a href="../episodios.html">Todos os episódios</a></li>
           <li><a href="https://open.spotify.com/show/0nLbEuYuL0trgLPo5lUbRJ" target="_blank" rel="noopener">Spotify</a></li>
@@ -151,21 +157,27 @@
         </ul>
       </div>
       <div>
-        <h3>Siga</h3>
+        <h2>Navegar</h2>
+        <ul>
+          <li><a href="../index.html#fusu">O projeto</a></li>
+          <li><a href="../index.html#quem-somos">Quem somos</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
+          <li><a href="../index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Seguir</h2>
         <ul>
           <li><a href="https://www.instagram.com/fusupodcast/" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://www.linkedin.com/company/fusupodcast/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="../index.html#contato">Fale com a gente</a></li>
+          <li><a href="https://www.fundacaoedp.pt/pt" target="_blank" rel="noopener">Apoio: Fundação EDP</a></li>
         </ul>
       </div>
     </div>
+
     <div class="footer__bottom">
-      <span>© 2025 Futuro Sustentável co.</span>
-      <nav>
-        <a href="../index.html">Início</a>
-        <a href="../episodios.html">Episódios</a>
-        <a href="../blog/index.html">Blog</a>
-      </nav>
+      <span>© <span data-year>2025</span> Futuro Sustentável co.</span>
+      <span>Feito em HTML, CSS e um microfone.</span>
     </div>
   </div>
 </footer>
