@@ -45,13 +45,20 @@
     const [latest] = state.all;
     if (!latest) return;
 
-    // Selo no hero
-    const badge = $('heroLatest');
-    if (badge) {
-      badge.hidden = false;
-      badge.href = pageUrl(latest);
-      $('heroLatestCover').src = latest.cover || 'assets/img/brand/globe.png';
+    // Cartão do último episódio no hero
+    if ($('heroLatestTitle')) {
       $('heroLatestTitle').textContent = latest.title;
+      $('heroLatestMeta').innerHTML =
+        `<span class="${kindClass(latest)}">${kindLabel(latest)}</span>`
+        + `<span>${latest.dateLabel}</span><span>${latest.duration}</span>`;
+      $('heroLatestLink').href = pageUrl(latest);
+      $('heroLatestLink').setAttribute('aria-label', `Ouvir ${latest.title}`);
+
+      const cover = $('heroLatestCover');
+      if (latest.cover) {
+        cover.src = latest.cover;
+        cover.alt = `Capa do episódio ${latest.title}`;
+      }
     }
 
     // Números

@@ -117,7 +117,7 @@ www  →  jmanzolli.github.io
 O formulário usa o **FormSubmit** — funciona em site estático, sem backend e sem conta.
 
 ```html
-<form action="https://formsubmit.co/ajax/manzolli.jonatas@gmail.com" method="POST">
+<form action="https://formsubmit.co/ajax/contatofusu@gmail.com" method="POST">
 ```
 
 **Ativação (uma vez só):**
@@ -125,6 +125,8 @@ O formulário usa o **FormSubmit** — funciona em site estático, sem backend e
 1. Enviar uma mensagem de teste pelo site.
 2. Chega um e-mail do FormSubmit pedindo confirmação — clicar no link.
 3. A partir daí todas as mensagens chegam nesse endereço.
+
+O endereço usado é o **contatofusu@gmail.com** (conta dedicada do podcast).
 
 **Esconder o e-mail do código (recomendado):** o e-mail de ativação traz um alias com hash,
 por exemplo `https://formsubmit.co/ajax/a1b2c3d4e5...`. Substituir o endereço pelo alias no

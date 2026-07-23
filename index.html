@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="assets/img/brand/globe.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/fusu-poster.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 
@@ -107,14 +107,29 @@
       </div>
 
       <div class="hero__art">
-        <img class="hero__photo" src="assets/img/hero.webp" alt="Vista aérea de um parque solar cercado por vegetação" width="1920" height="1280" fetchpriority="high">
-        <a class="hero__badge" id="heroLatest" href="episodios.html" hidden>
-          <img id="heroLatestCover" src="assets/img/brand/globe.png" alt="" width="64" height="64">
-          <span>
-            <span class="label"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span> Último episódio</span>
-            <span class="title" id="heroLatestTitle">Ver todos os episódios</span>
-          </span>
-        </a>
+        <article class="hero__player">
+          <p class="hero__player-label">
+            <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+            Último episódio
+          </p>
+
+          <div class="hero__player-top">
+            <img class="hero__player-cover" id="heroLatestCover" src="assets/img/fusu-poster.webp" alt="" width="400" height="400" fetchpriority="high">
+            <div>
+              <h2 class="hero__player-title" id="heroLatestTitle">Carregando o último episódio…</h2>
+              <p class="meta" id="heroLatestMeta"></p>
+            </div>
+          </div>
+
+          <div class="wave" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+
+          <a class="btn btn--light" id="heroLatestLink" href="episodios.html">Ouvir episódio</a>
+        </article>
       </div>
     </div>
   </section>
@@ -359,7 +374,7 @@
 
       <!-- Envio via FormSubmit (sem backend). Trocar o endereço abaixo pelo alias
            gerado no e-mail de ativação esconde o e-mail do código. Ver README. -->
-      <form class="form" id="contactForm" action="https://formsubmit.co/ajax/manzolli.jonatas@gmail.com" method="POST" novalidate>
+      <form class="form" id="contactForm" action="https://formsubmit.co/ajax/contatofusu@gmail.com" method="POST" novalidate>
         <input type="hidden" name="_subject" value="FuSu — nova mensagem pelo site">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
