@@ -1,6 +1,11 @@
 {
- "updated": "2026-07-22",
+ "updated": "2026-07-23",
  "count": 28,
+ "entryPoints": {
+  "entender": "fusu-10-o-fusu-voltou",
+  "profunda": "fusu-11-vivendo-com-o-minimo",
+  "curta": "pilula-12-cop30-em-belem-expectativas-e-o-que-saiu-de-bonn"
+ },
  "episodes": [
   {
    "id": "fusu-15-inovacao-para-mudar-o-mundo",
@@ -289,7 +294,7 @@
   },
   {
    "id": "fusu-5-o-hidrogenio-verde-e-a-nossa-salvacao-com-prof-rui-co",
-   "title": "FuSu #5 - O hidrogénio verde é a nossa salvação? (com prof. Rui Costa Neto)",
+   "title": "FuSu #5 - O hidrogênio verde é a nossa salvação? (com prof. Rui Costa Neto)",
    "kind": "episodio",
    "season": 1,
    "number": "5",
@@ -300,7 +305,7 @@
    "audio": "https://anchor.fm/s/e7f23af4/podcast/play/75284790/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2023-7-30%2F345119139-44100-2-6505432713f95.m4a",
    "link": "https://podcasters.spotify.com/pod/show/fusupodcast/episodes/FuSu-5---O-hidrognio-verde--a-nossa-salvao--com-prof--Rui-Costa-Neto-e28o0rm",
    "cover": "assets/img/ep/fusu-5-o-hidrogenio-verde-e-a-nossa-salvacao-com-prof-rui-co.jpg",
-   "description": "No episódio mais recente do FuSu - Futuro Sustentável, adentramos no fascinante universo do Hidrogénio Verde, uma fonte de energia promissora para a transição energética global. Nato Manzolli e Denner Déda discutem suas aplicações, tipos, tecnologias, vantagens e desafios, enquanto entrevistam o renomado professor do Instituto Superior Técnico de Lisboa, Rui Costa Neto. Descubra como o Hidrogénio Verde está moldando o futuro da sustentabilidade energética.\n\n—\n\nRedes sociais:\n\nLinktree: linktr.ee/fusupodcast\n\nInstagram: https://www.instagram.com/fusupodcast/\n\nLinkedIn: https://www.linkedin.com/company/fusupodcast/\n\nEmail: contatofusu@gmail.com"
+   "description": "No episódio mais recente do FuSu - Futuro Sustentável, adentramos no fascinante universo do Hidrogênio Verde, uma fonte de energia promissora para a transição energética global. Nato Manzolli e Denner Déda discutem suas aplicações, tipos, tecnologias, vantagens e desafios, enquanto entrevistam o renomado professor do Instituto Superior Técnico de Lisboa, Rui Costa Neto. Descubra como o Hidrogênio Verde está moldando o futuro da sustentabilidade energética.\n\n—\n\nRedes sociais:\n\nLinktree: linktr.ee/fusupodcast\n\nInstagram: https://www.instagram.com/fusupodcast/\n\nLinkedIn: https://www.linkedin.com/company/fusupodcast/\n\nEmail: contatofusu@gmail.com"
   },
   {
    "id": "pilula-3-mobilidade-sustentavel",

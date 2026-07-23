@@ -66,6 +66,7 @@
 
     <nav aria-label="Principal">
       <ul class="nav__links" id="navLinks">
+        <li class="nav__mobile-cta"><a href="episodios.html">▶ Ouvir agora</a></li>
         <li><a href="#fusu">O FuSu</a></li>
         <li><a href="episodios.html">Episódios</a></li>
         <li><a href="blog/index.html">Blog</a></li>
@@ -113,13 +114,15 @@
             Último episódio
           </p>
 
+          <!-- hero:start -->
           <div class="hero__player-top">
-            <img class="hero__player-cover" id="heroLatestCover" src="assets/img/fusu-poster.webp" alt="" width="400" height="400" fetchpriority="high">
+            <img class="hero__player-cover" id="heroLatestCover" src="assets/img/ep/fusu-15-inovacao-para-mudar-o-mundo.jpg" alt="Capa do episódio FuSu #15 - Inovação para Mudar o Mundo!" width="400" height="400" fetchpriority="high">
             <div>
-              <h2 class="hero__player-title" id="heroLatestTitle">Carregando o último episódio…</h2>
-              <p class="meta" id="heroLatestMeta"></p>
+              <h2 class="hero__player-title" id="heroLatestTitle">FuSu #15 - Inovação para Mudar o Mundo!</h2>
+              <p class="meta" id="heroLatestMeta"><span class="chip chip--talk">Entrevista</span><span>10 nov 2025</span><span>35 min</span></p>
             </div>
           </div>
+      <!-- hero:end -->
 
           <div class="wave" aria-hidden="true">
             <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
@@ -128,7 +131,7 @@
             <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
           </div>
 
-          <a class="btn btn--light" id="heroLatestLink" href="episodios.html">Ouvir episódio</a>
+          <a class="btn btn--light" id="heroLatestLink" href="episodios/fusu-15-inovacao-para-mudar-o-mundo.html">Ouvir episódio</a>
         </article>
       </div>
     </div>
@@ -140,7 +143,7 @@
       <dl class="facts__list">
         <div>
           <dt>Temporadas</dt>
-          <dd>2<small>A segunda no ar desde setembro de 2025</small></dd>
+          <dd>2<small>Duas temporadas publicadas</small></dd>
         </div>
         <div>
           <dt>Episódios</dt>
@@ -162,11 +165,41 @@
   <section class="section section--dark" id="destaque" aria-labelledby="destaque-h">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Em destaque</p>
-        <h2 class="section-title" id="destaque-h">Comece por aqui</h2>
+        <p class="eyebrow">Por onde começar</p>
+        <h2 class="section-title" id="destaque-h">Escolha o seu tempo</h2>
+        <p class="lead">Três portas de entrada para quem chega agora — de cinco minutos a uma conversa inteira.</p>
       </div>
-      <div class="featured" id="featured">
-        <p class="lead">Carregando o episódio…</p>
+
+      <div class="doors">
+      <!-- entradas:start -->
+        <a class="door" href="episodios/fusu-10-o-fusu-voltou.html">
+          <img src="assets/img/ep/fusu-10-o-fusu-voltou.jpg" alt="" width="400" height="400" loading="lazy">
+          <span class="door__body">
+            <span class="door__label">Quero entender o FuSu</span>
+            <span class="door__title">FuSu #10 - O Fusu voltou!</span>
+            <span class="door__text">Uma porta de entrada curta para o formato e a proposta.</span>
+            <span class="meta"><span class="chip chip--talk">Entrevista</span><span>12 min</span></span>
+          </span>
+        </a>
+        <a class="door" href="episodios/fusu-11-vivendo-com-o-minimo.html">
+          <img src="assets/img/ep/fusu-11-vivendo-com-o-minimo.jpg" alt="" width="400" height="400" loading="lazy">
+          <span class="door__body">
+            <span class="door__label">Quero uma conversa aprofundada</span>
+            <span class="door__title">FuSu #11 - Vivendo com o Mínimo</span>
+            <span class="door__text">Entrevista longa com quem trabalha no assunto.</span>
+            <span class="meta"><span class="chip chip--talk">Entrevista</span><span>1h02</span></span>
+          </span>
+        </a>
+        <a class="door" href="episodios/pilula-12-cop30-em-belem-expectativas-e-o-que-saiu-de-bonn.html">
+          <img src="assets/img/ep/pilula-12-cop30-em-belem-expectativas-e-o-que-saiu-de-bonn.jpg" alt="" width="400" height="400" loading="lazy">
+          <span class="door__body">
+            <span class="door__label">Tenho cinco minutos</span>
+            <span class="door__title">Pílula #12 - COP30 em Belém: Expectativas e o que saiu de Bonn</span>
+            <span class="door__text">Uma Pílula: uma notícia destrinchada e pronto.</span>
+            <span class="meta"><span class="chip chip--pill">Pílula</span><span>5 min</span></span>
+          </span>
+        </a>
+      <!-- entradas:end -->
       </div>
     </div>
   </section>
@@ -183,9 +216,88 @@
         <a class="btn btn--outline" href="episodios.html">Ver os 28 episódios</a>
       </div>
 
-      <ol class="ep-rows" id="epRows" data-limit="5">
-        <li><p class="lead">Carregando os episódios…</p></li>
+      <ol class="ep-rows" id="epRows">
+      <!-- recentes:start -->
+        <li class="ep-row">
+          <img class="ep-row__cover" src="assets/img/ep/pilula-12-cop30-em-belem-expectativas-e-o-que-saiu-de-bonn.jpg" alt="" width="96" height="96" loading="lazy">
+          <div>
+            <p class="meta"><span class="chip chip--pill">Pílula</span><span>3 nov 2025</span><span>5 min</span></p>
+            <h3 class="ep-row__title"><a href="episodios/pilula-12-cop30-em-belem-expectativas-e-o-que-saiu-de-bonn.html">Pílula #12 - COP30 em Belém: Expectativas e o que saiu de Bonn</a></h3>
+            <p class="ep-row__desc">Nato Manzolli e Denner Déda explicam o que está em jogo para a COP30, que será realizada em Belém, e analisam os resultados do encontro preparatório…</p>
+          </div>
+          <a class="ep-row__play" href="episodios/pilula-12-cop30-em-belem-expectativas-e-o-que-saiu-de-bonn.html" aria-label="Ouvir Pílula #12 - COP30 em Belém: Expectativas e o que saiu de Bonn" tabindex="-1">▶</a>
+        </li>
+        <li class="ep-row">
+          <img class="ep-row__cover" src="assets/img/ep/fusu-14-iluminando-vidas-transformando-comunidades.jpg" alt="" width="96" height="96" loading="lazy">
+          <div>
+            <p class="meta"><span class="chip chip--talk">Entrevista</span><span>27 out 2025</span><span>52 min</span></p>
+            <h3 class="ep-row__title"><a href="episodios/fusu-14-iluminando-vidas-transformando-comunidades.html">FuSu #14 - Iluminando Vidas, Transformando Comunidades</a></h3>
+            <p class="ep-row__desc">Nato Manzolli e Denner Déda exploram o impacto transformador da inovação social através da experiência da Litro de Luz, uma organização que leva…</p>
+          </div>
+          <a class="ep-row__play" href="episodios/fusu-14-iluminando-vidas-transformando-comunidades.html" aria-label="Ouvir FuSu #14 - Iluminando Vidas, Transformando Comunidades" tabindex="-1">▶</a>
+        </li>
+        <li class="ep-row">
+          <img class="ep-row__cover" src="assets/img/ep/pilula-11-10-anos-do-acordo-de-paris-onde-estamos.jpg" alt="" width="96" height="96" loading="lazy">
+          <div>
+            <p class="meta"><span class="chip chip--pill">Pílula</span><span>20 out 2025</span><span>6 min</span></p>
+            <h3 class="ep-row__title"><a href="episodios/pilula-11-10-anos-do-acordo-de-paris-onde-estamos.html">Pílula #11 - 10 Anos do Acordo de Paris: Onde estamos?</a></h3>
+            <p class="ep-row__desc">Nato Manzolli e Denner Déda revisitam o Acordo de Paris, firmado em 2015 com a meta de limitar o aquecimento global a 1,5 °C. Dez anos depois, o…</p>
+          </div>
+          <a class="ep-row__play" href="episodios/pilula-11-10-anos-do-acordo-de-paris-onde-estamos.html" aria-label="Ouvir Pílula #11 - 10 Anos do Acordo de Paris: Onde estamos?" tabindex="-1">▶</a>
+        </li>
+        <li class="ep-row">
+          <img class="ep-row__cover" src="assets/img/ep/fusu-13-avaliacao-de-ciclo-de-vida.jpg" alt="" width="96" height="96" loading="lazy">
+          <div>
+            <p class="meta"><span class="chip chip--talk">Entrevista</span><span>13 out 2025</span><span>53 min</span></p>
+            <h3 class="ep-row__title"><a href="episodios/fusu-13-avaliacao-de-ciclo-de-vida.html">FuSu #13 - Avaliação de Ciclo de Vida</a></h3>
+            <p class="ep-row__desc">Nato Manzolli e Denner Déda mergulham no universo da Avaliação do Ciclo de Vida (ACV) com Jade Müller, engenheira ambiental e pesquisadora no Centro…</p>
+          </div>
+          <a class="ep-row__play" href="episodios/fusu-13-avaliacao-de-ciclo-de-vida.html" aria-label="Ouvir FuSu #13 - Avaliação de Ciclo de Vida" tabindex="-1">▶</a>
+        </li>
+        <li class="ep-row">
+          <img class="ep-row__cover" src="assets/img/ep/pilula-10-a-franca-da-um-basta-na-fast-fashion-sera.jpg" alt="" width="96" height="96" loading="lazy">
+          <div>
+            <p class="meta"><span class="chip chip--pill">Pílula</span><span>6 out 2025</span><span>4 min</span></p>
+            <h3 class="ep-row__title"><a href="episodios/pilula-10-a-franca-da-um-basta-na-fast-fashion-sera.html">Pílula #10 - A França dá um basta na Fast Fashion (Será?)</a></h3>
+            <p class="ep-row__desc">Nato Manzolli e Denner Déda analisam a nova lei francesa que mira gigantes como Shein e Temu, impondo medidas como taxa ambiental por peça, proibição…</p>
+          </div>
+          <a class="ep-row__play" href="episodios/pilula-10-a-franca-da-um-basta-na-fast-fashion-sera.html" aria-label="Ouvir Pílula #10 - A França dá um basta na Fast Fashion (Será?)" tabindex="-1">▶</a>
+        </li>
+      <!-- recentes:end -->
       </ol>
+    </div>
+  </section>
+
+  <!-- ============ SEGUIR ============ -->
+  <section class="section section--dark section--tight" id="seguir" aria-labelledby="seguir-h">
+    <div class="wrap follow">
+      <div>
+        <p class="eyebrow">Não perca o próximo</p>
+        <h2 class="section-title" id="seguir-h">Avisamos quando sair episódio novo</h2>
+        <p class="lead">Deixe o seu e-mail e receba o aviso de cada episódio — sem spam, sem newsletter diária.</p>
+        <ul class="platforms" style="margin-top:24px">
+          <li><a href="https://open.spotify.com/show/0nLbEuYuL0trgLPo5lUbRJ" target="_blank" rel="noopener">Seguir no Spotify</a></li>
+          <li><a href="https://podcasts.apple.com/us/podcast/futuro-sustent%C3%A1vel/id1704469234" target="_blank" rel="noopener">Apple Podcasts</a></li>
+          <li><a href="https://www.instagram.com/fusupodcast/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+
+      <form class="follow__form" id="followForm" action="https://formsubmit.co/ajax/5d86217fb71a2255d1d8a87a87c6800e" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="FuSu — nova inscrição para avisos de episódio">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="assunto" value="Aviso de novos episódios">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true">
+
+        <div class="field">
+          <label for="follow-email">Seu e-mail</label>
+          <input id="follow-email" name="email" type="email" autocomplete="email" required placeholder="voce@exemplo.com" aria-describedby="erro-follow-email">
+          <span class="field__error" id="erro-follow-email"></span>
+        </div>
+
+        <button class="btn btn--light" type="submit">Quero ser avisado</button>
+        <p class="form__status" id="followStatus" role="status" aria-live="polite"></p>
+        <p class="form__note">Só avisos de episódio. Dá para sair quando quiser.</p>
+      </form>
     </div>
   </section>
 
@@ -202,7 +314,7 @@
         <a class="theme" href="episodios.html?q=energia">
           <span class="theme__num">01</span>
           <span class="theme__name">Transição energética</span>
-          <p class="theme__text">Renováveis, hidrogénio verde, nuclear e o que ainda falta para sair dos fósseis.</p>
+          <p class="theme__text">Renováveis, hidrogênio verde, nuclear e o que ainda falta para sair dos fósseis.</p>
         </a>
         <a class="theme" href="episodios.html?q=COP">
           <span class="theme__num">02</span>
@@ -302,7 +414,7 @@
       <div class="section-head section-head--split">
         <div>
           <p class="eyebrow">Blog</p>
-          <h2 class="section-title" id="blog-h">Os bastidores das conversas</h2>
+          <h2 class="section-title" id="blog-h">Leituras recomendadas</h2>
           <p class="lead" style="margin-top:16px">Contexto extra, referências e bastidores de cada entrevista — para quem quer ir além do áudio.</p>
         </div>
         <a class="btn btn--outline" href="blog/index.html">Ver todos os artigos</a>
@@ -418,7 +530,7 @@
         <div>
           <button class="btn" type="submit">Enviar mensagem</button>
         </div>
-        <p class="form__note">Ao enviar, você concorda em ser contactado por e-mail sobre esta mensagem.</p>
+        <p class="form__note">Ao enviar, você concorda em ser contatado por e-mail sobre esta mensagem.</p>
       </form>
     </div>
   </section>
@@ -468,6 +580,5 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
-<script src="assets/js/player.js"></script>
 </body>
 </html>

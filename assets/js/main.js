@@ -10,8 +10,11 @@
   if (toggle && links) {
     const setOpen = (open) => {
       links.classList.toggle('is-open', open);
+      document.body.classList.toggle('menu-open', open);
       toggle.setAttribute('aria-expanded', String(open));
       toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      if (open) links.querySelector('a')?.focus();
+      else if (document.activeElement && links.contains(document.activeElement)) toggle.focus();
     };
 
     toggle.addEventListener('click', () => setOpen(!links.classList.contains('is-open')));
@@ -72,11 +75,12 @@
     sections.forEach((s) => spy.observe(s));
   }
 
-  /* ---------- Formulário de contato ---------- */
-  const form = $('#contactForm');
-  if (!form) return;
+  /* ---------- Formulários (contato e avisos) ---------- */
+  $$('form[action*="formsubmit"]').forEach(setupForm);
 
-  const status = $('#formStatus');
+  function setupForm(form) {
+
+  const status = form.querySelector('.form__status');
   const fields = $$('input:not([type="hidden"]):not([name^="_"]), select, textarea', form);
 
   const messages = {
@@ -93,7 +97,7 @@
   };
 
   const validate = (field) => {
-    const error = $(`#erro-${field.name}`);
+    const error = form.querySelector(`#erro-${field.id}`) || form.querySelector(`#erro-${field.name}`);
     const ok = field.checkValidity();
     field.setAttribute('aria-invalid', String(!ok));
     if (error) error.textContent = ok ? '' : (messages[field.name] || 'Campo obrigatório.');
@@ -139,11 +143,22 @@
 
       form.reset();
       fields.forEach((f) => f.removeAttribute('aria-invalid'));
-      setStatus('Mensagem enviada. Obrigado — respondemos em breve!', 'ok');
+      setStatus(form.id === 'followForm' ? 'Pronto! Avisamos assim que sair episódio novo.' : 'Mensagem enviada. Obrigado — respondemos em breve!', 'ok');
     } catch (_) {
       setStatus('Não foi possível enviar agora. Tente de novo em instantes ou fale com a gente pelas redes sociais.', 'error');
     } finally {
       if (submit) submit.disabled = false;
     }
   });
+  }
+
+  /* ---------- Altura real do player para o padding do corpo ---------- */
+  const bar = $('#playerBar');
+  if (bar && 'ResizeObserver' in window) {
+    const setH = () => document.documentElement.style.setProperty(
+      '--player-h', `${bar.hidden ? 0 : bar.offsetHeight}px`);
+    new ResizeObserver(setH).observe(bar);
+    new MutationObserver(setH).observe(bar, { attributes: true, attributeFilter: ['hidden'] });
+    setH();
+  }
 })();

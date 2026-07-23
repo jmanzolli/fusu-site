@@ -47,6 +47,11 @@ PTBR_STEMS = {
     "anónim": "anônim",
     "sinónim": "sinônim",
     "fenómen": "fenômen",
+    "hidrogén": "hidrogên",
+    "oxigén": "oxigên",
+    "nitrogén": "nitrogên",
+    "patrimón": "patrimôn",
+    "colónia": "colônia",
     "eletrónic": "eletrônic",
     "electrónic": "eletrônic",
     "polémic": "polêmic",
@@ -277,6 +282,131 @@ def build_page(ep: dict, newer: dict | None, older: dict | None) -> str:
 {T.footer('../')}"""
 
 
+def entry_points(episodes: list) -> dict:
+    """Três portas de entrada para quem chega agora.
+
+    Podem ser fixadas à mão em assets/data/highlights.json:
+        {"entender": "<id>", "profunda": "<id>", "curta": "<id>"}
+    O que não estiver fixado é escolhido por regra, a partir dos dados do feed.
+    """
+    manual = {}
+    path = os.path.join(ROOT, "assets", "data", "highlights.json")
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as fh:
+            manual = json.load(fh)
+
+    by_id = {e["id"]: e for e in episodes}
+    talks = [e for e in episodes if e["kind"] == "episodio"]
+    pills = [e for e in episodes if e["kind"] == "pilula"]
+    season = max(e["season"] for e in episodes)
+    talks_now = [e for e in talks if e["season"] == season] or talks
+
+    escolhas = {
+        # apresentação: a entrevista mais curta da temporada atual
+        "entender": min(talks_now, key=lambda e: e["seconds"]),
+        # conversa longa: a entrevista mais longa da temporada atual
+        "profunda": max(talks_now, key=lambda e: e["seconds"]),
+        # cinco minutos: a pílula mais recente
+        "curta": pills[0] if pills else talks[0],
+    }
+
+    for chave, ep_id in manual.items():
+        if ep_id in by_id:
+            escolhas[chave] = by_id[ep_id]
+
+    return {k: v["id"] for k, v in escolhas.items()}
+
+
+def kind_chip(ep: dict) -> str:
+    cls = "chip chip--pill" if ep["kind"] == "pilula" else "chip chip--talk"
+    return f'<span class="{cls}">{kind_label(ep)}</span>'
+
+
+def short(text: str, n: int) -> str:
+    t = re.sub(r"\s+", " ", text or "").strip()
+    return (t[:n].rsplit(" ", 1)[0] + "…") if len(t) > n else t
+
+
+HOME = os.path.join(ROOT, "index.html")
+
+
+def render_home(episodes: list, entradas: dict) -> None:
+    """Escreve no index.html o HTML real dos episódios (sem depender de JS)."""
+    with open(HOME, encoding="utf-8") as fh:
+        page = fh.read()
+
+    latest = episodes[0]
+    by_id = {e["id"]: e for e in episodes}
+
+    hero = f'''          <div class="hero__player-top">
+            <img class="hero__player-cover" id="heroLatestCover" src="{latest['cover']}" alt="Capa do episódio {html.escape(latest['title'])}" width="400" height="400" fetchpriority="high">
+            <div>
+              <h2 class="hero__player-title" id="heroLatestTitle">{html.escape(latest['title'])}</h2>
+              <p class="meta" id="heroLatestMeta">{kind_chip(latest)}<span>{latest['dateLabel']}</span><span>{latest['duration']}</span></p>
+            </div>
+          </div>'''
+
+    rotulos = {
+        "entender": ("Quero entender o FuSu", "Uma porta de entrada curta para o formato e a proposta."),
+        "profunda": ("Quero uma conversa aprofundada", "Entrevista longa com quem trabalha no assunto."),
+        "curta": ("Tenho cinco minutos", "Uma Pílula: uma notícia destrinchada e pronto."),
+    }
+
+    cartoes = []
+    for chave in ("entender", "profunda", "curta"):
+        ep = by_id.get(entradas.get(chave, ""), episodes[0])
+        titulo, frase = rotulos[chave]
+        cartoes.append(f'''        <a class="door" href="episodios/{ep['id']}.html">
+          <img src="{ep['cover']}" alt="" width="400" height="400" loading="lazy">
+          <span class="door__body">
+            <span class="door__label">{titulo}</span>
+            <span class="door__title">{html.escape(ep['title'])}</span>
+            <span class="door__text">{frase}</span>
+            <span class="meta">{kind_chip(ep)}<span>{ep['duration']}</span></span>
+          </span>
+        </a>''')
+
+    recentes = []
+    for ep in episodes[1:6]:
+        recentes.append(f'''        <li class="ep-row">
+          <img class="ep-row__cover" src="{ep['cover']}" alt="" width="96" height="96" loading="lazy">
+          <div>
+            <p class="meta">{kind_chip(ep)}<span>{ep['dateLabel']}</span><span>{ep['duration']}</span></p>
+            <h3 class="ep-row__title"><a href="episodios/{ep['id']}.html">{html.escape(ep['title'])}</a></h3>
+            <p class="ep-row__desc">{html.escape(short(ep['description'], 150))}</p>
+          </div>
+          <a class="ep-row__play" href="episodios/{ep['id']}.html" aria-label="Ouvir {html.escape(ep['title'])}" tabindex="-1">▶</a>
+        </li>''')
+
+    blocos = {
+        "hero": hero,
+        "entradas": "\n".join(cartoes),
+        "recentes": "\n".join(recentes),
+    }
+
+    for nome, html_bloco in blocos.items():
+        ini, fim = f"<!-- {nome}:start -->", f"<!-- {nome}:end -->"
+        if ini not in page or fim not in page:
+            print(f"  ! marcadores {nome} não encontrados na home")
+            continue
+        antes, resto = page.split(ini, 1)
+        _, depois = resto.split(fim, 1)
+        page = f"{antes}{ini}\n{html_bloco}\n      {fim}{depois}"
+
+    # botão do hero aponta para o episódio mais recente
+    page = re.sub(r'(id="heroLatestLink" href=")[^"]*"',
+                  rf'\g<1>episodios/{latest["id"]}.html"', page)
+
+    # números reais
+    horas = round(sum(e["seconds"] for e in episodes) / 3600)
+    page = re.sub(r'(id="factEpisodes">)\d+', rf'\g<1>{len(episodes)}', page)
+    page = re.sub(r'(id="factHours">)\d+', rf'\g<1>{horas}', page)
+
+    with open(HOME, "w", encoding="utf-8") as fh:
+        fh.write(page)
+    print("  home: hero, portas de entrada e episódios recentes escritos no HTML")
+
+
 def main() -> None:
     print(f"A ler {FEED} …")
     with urllib.request.urlopen(FEED) as resp:
@@ -295,6 +425,7 @@ def main() -> None:
         if not season:
             season = "2" if dt.year >= 2025 else "1"
 
+        title = to_ptbr(title)
         slug = slugify(title)
         episodes.append({
             "id": slug,
@@ -319,6 +450,7 @@ def main() -> None:
         json.dump({
             "updated": datetime.now().strftime("%Y-%m-%d"),
             "count": len(episodes),
+            "entryPoints": entry_points(episodes),
             "episodes": episodes,
         }, fh, ensure_ascii=False, indent=1)
 
@@ -329,7 +461,10 @@ def main() -> None:
         with open(os.path.join(PAGE_DIR, f"{ep['id']}.html"), "w", encoding="utf-8") as fh:
             fh.write(build_page(ep, newer, older))
 
-    print(f"OK — {len(episodes)} episódios: dados, capas e páginas em episodios/")
+    entradas = entry_points(episodes)
+    render_home(episodes, entradas)
+
+    print(f"OK — {len(episodes)} episódios: dados, capas, páginas e home pré-renderizada")
 
 
 if __name__ == "__main__":

@@ -129,6 +129,8 @@ a:hover { color: var(--brand); }
 }
 .skip-link:focus { top: 0; }
 
+body.menu-open { overflow: hidden; }
+
 /* ---------- 3. Layout ---------- */
 .wrap {
   width: 100%;
@@ -356,6 +358,7 @@ h2.section-title { font-size: var(--fs-h2); color: inherit; }
 .nav__links a:hover, .nav__links a.is-active { color: #fff; border-bottom-color: var(--brand-light); }
 
 .nav__cta { flex: none; }
+.nav__links .nav__mobile-cta { display: none; }
 
 .nav__toggle {
   display: none;
@@ -620,6 +623,66 @@ h2.section-title { font-size: var(--fs-h2); color: inherit; }
 
 .platforms--light a { border-color: var(--line-strong); color: var(--text); }
 .platforms--light a:hover { background: var(--brand-strong); border-color: var(--brand-strong); color: #fff; }
+
+/* Portas de entrada */
+.doors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s-5);
+}
+
+.door {
+  display: grid;
+  gap: var(--s-4);
+  align-content: start;
+  padding: var(--s-5);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.03);
+  text-decoration: none;
+  color: var(--text-on-dark);
+  transition: border-color var(--t-fast), background var(--t-fast), transform var(--t-fast);
+}
+
+.door:hover {
+  border-color: var(--brand-light);
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-2px);
+  color: var(--text-on-dark);
+}
+
+.door img { width: 88px; height: 88px; border-radius: 10px; object-fit: cover; }
+.door__body { display: grid; gap: var(--s-2); }
+
+.door__label {
+  font: 700 var(--fs-label)/1.2 var(--font-body);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-light);
+}
+
+.door__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.door__text { font-size: var(--fs-small); color: var(--text-2-on-dark); }
+.door .meta { margin-top: var(--s-2); }
+
+/* Bloco “avisamos quando sair episódio” */
+.follow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+}
+
+.follow__form { display: grid; gap: var(--s-4); }
+.follow__form .field label { color: var(--text-2-on-dark); }
+.follow__form .form__note { color: var(--text-2-on-dark); }
+.follow__form .btn { justify-self: start; }
 
 /* ---------- 10. Lista editorial de episódios ---------- */
 .ep-rows { list-style: none; margin: 0; padding: 0; }
@@ -1013,7 +1076,7 @@ h2.section-title { font-size: var(--fs-h2); color: inherit; }
 .ep-actions { display: flex; flex-wrap: wrap; gap: var(--s-3); margin: var(--s-4) 0 var(--s-6); }
 
 /* Player fixo */
-body.player-open { padding-bottom: 108px; }
+body.player-open { padding-bottom: calc(var(--player-h, 108px) + env(safe-area-inset-bottom)); }
 
 .player-bar {
   position: fixed;
@@ -1024,6 +1087,7 @@ body.player-open { padding-bottom: 108px; }
   border-top: 1px solid var(--line-dark);
   color: var(--text-on-dark);
   padding-block: var(--s-3);
+  padding-bottom: calc(var(--s-3) + env(safe-area-inset-bottom));
 }
 
 .player-bar__inner {
@@ -1085,6 +1149,8 @@ body.player-open { padding-bottom: 108px; }
   .themes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .manifesto, .contact, .post-featured { grid-template-columns: 1fr; }
   .support__inner { grid-template-columns: 1fr; }
+  .doors { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .follow { grid-template-columns: 1fr; }
   .support__logo { max-width: 240px; }
   .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-6) var(--s-5); }
   .facts__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1125,12 +1191,88 @@ body.player-open { padding-bottom: 108px; }
   .featured__cover { max-width: 320px; }
   .themes { grid-template-columns: 1fr; }
 
-  .ep-row { grid-template-columns: 64px minmax(0, 1fr); gap: var(--s-4); align-items: start; }
+  .ep-row { grid-template-columns: 64px minmax(0, 1fr) 44px; gap: var(--s-3); align-items: center; }
   .ep-row__cover { width: 64px; height: 64px; }
-  .ep-row__play { grid-column: 2; width: 44px; height: 44px; margin-top: var(--s-2); }
+  .ep-row__play { width: 44px; height: 44px; font-size: 0.8rem; }
+  .ep-row .meta { font-size: 0.78rem; gap: var(--s-1) var(--s-2); }
+  .ep-row .meta > * + *::before { margin-right: var(--s-2); }
+  .ep-row__title { font-size: 1.02rem; margin: 6px 0 0; }
 
   .form__row { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; }
+
+  /* Menu ganha o CTA principal como primeiro item */
+  .nav__links .nav__mobile-cta { display: block; }
+  .nav__links .nav__mobile-cta a { color: var(--brand-light); font-weight: 700; }
+
+  /* Hero mais curto: só uma ação em botão, a outra vira link */
+  .hero { padding-top: calc(var(--nav-h) + 32px); }
+  .hero__wordmark { width: 120px; margin-bottom: var(--s-4); }
+  .hero__lead { font-size: 1rem; }
+  .hero__actions .btn--ghost {
+    border: 0; background: none; color: var(--brand-light);
+    min-height: 0; padding: 4px 0; text-decoration: underline;
+    text-underline-offset: 4px; letter-spacing: 0.04em;
+  }
+  .hero__actions .btn--ghost:hover { background: none; color: #fff; }
+  .hero__proof { margin-top: var(--s-5); padding-top: var(--s-4); font-size: 0.84rem; }
+  .hero__proof img { width: 60px; }
+  .hero__player { gap: var(--s-4); }
+  .wave { height: 36px; }
+
+  /* Portas de entrada empilhadas e mais baixas */
+  .doors { grid-template-columns: 1fr; gap: var(--s-4); }
+  .door { grid-template-columns: 64px minmax(0, 1fr); align-items: center; padding: var(--s-4); }
+  .door img { width: 64px; height: 64px; }
+  .door__text { display: none; }
+
+  /* Só três episódios recentes na home */
+  #epRows .ep-row:nth-child(n + 4) { display: none; }
+
+  /* Temas como lista compacta */
+  .themes { grid-template-columns: 1fr; border-radius: var(--radius); }
+  .theme {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--s-3);
+    padding: var(--s-4) var(--s-5);
+  }
+  .theme__num { grid-column: 1; }
+  .theme__name { grid-column: 2; font-size: 1.05rem; }
+  .theme__text { display: none; }
+  .theme::after { content: "→"; grid-column: 3; color: var(--brand); }
+
+  /* Manifesto: pôster em faixa, não em coluna inteira */
+  .manifesto__art img { aspect-ratio: 16 / 9; object-fit: cover; object-position: center 20%; }
+
+  /* Equipe em duas colunas */
+  .team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); }
+  .member__photo { aspect-ratio: 1; }
+  .member__name { font-size: 1.05rem; }
+  .member__bio { font-size: 0.84rem; }
+
+  /* Blog: só o destaque e o botão */
+  .post-list { display: none; }
+
+  /* Respiro menor entre seções no celular */
+  :root { --section-y: 56px; }
+  .section-head { margin-bottom: var(--s-5); gap: var(--s-3); }
+  .section-head--split { gap: var(--s-4); }
+
+  /* Linhas de episódio sem resumo: título, tipo e duração bastam */
+  #epRows .ep-row__desc { display: none; }
+  #epRows .ep-row { padding-block: var(--s-4); }
+
+  /* Rodapé em duas colunas, logo menor */
+  .footer { padding-block: var(--s-7) var(--s-5); }
+  .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5); }
+  .footer__grid > :first-child { grid-column: 1 / -1; }
+  .footer__logo { width: 132px; }
+  .footer h2 { margin-bottom: var(--s-3); }
+
+  /* Contato mais enxuto */
+  .contact__aside ul { gap: var(--s-2); }
+  .field textarea { min-height: 120px; }
   .facts__list { grid-template-columns: 1fr 1fr; gap: var(--s-4); }
   .section-head--split { grid-template-columns: 1fr; align-items: start; }
 
@@ -1146,8 +1288,11 @@ body.player-open { padding-bottom: 108px; }
   .pager__item--next { text-align: left; }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
   .brand span { font-size: 1rem; }
   .brand img { width: 30px; height: 30px; }
-  .nav__cta .btn { padding: 8px 12px; letter-spacing: 0.04em; }
+  .nav__cta { display: none; }          /* o botão vive dentro do menu */
+  .door { grid-template-columns: 56px minmax(0, 1fr); }
+  .door img { width: 56px; height: 56px; }
+  .door__title { font-size: 1.02rem; }
 }

@@ -3,11 +3,7 @@
   const $ = (id) => document.getElementById(id);
   const DATA = 'assets/data/episodes.json';
 
-  const isList = !!$('epList');          // episodios.html
-  const isHome = !!$('epRows') || !!$('featured');
-
-  if (!isList && !isHome) return;
-
+  if (!document.getElementById('epList')) return;   // só na página de episódios
   const state = {
     all: [], view: [], index: -1,
     kind: 'all', season: 'all', query: '', sort: 'new',
@@ -32,88 +28,12 @@
     .then((r) => r.json())
     .then((data) => {
       state.all = data.episodes || [];
-      if (isHome) return renderHome();
       startList();
     })
     .catch(() => {
       const fallback = '<p class="lead">Não foi possível carregar os episódios agora. Ouça no <a href="https://open.spotify.com/show/0nLbEuYuL0trgLPo5lUbRJ">Spotify</a>.</p>';
-      ['featured', 'epRows', 'epList'].forEach((id) => { if ($(id)) $(id).innerHTML = fallback; });
+      if ($('epList')) $('epList').innerHTML = fallback;
     });
-
-  /* ================= HOME ================= */
-  function renderHome() {
-    const [latest] = state.all;
-    if (!latest) return;
-
-    // Cartão do último episódio no hero
-    if ($('heroLatestTitle')) {
-      $('heroLatestTitle').textContent = latest.title;
-      $('heroLatestMeta').innerHTML =
-        `<span class="${kindClass(latest)}">${kindLabel(latest)}</span>`
-        + `<span>${latest.dateLabel}</span><span>${latest.duration}</span>`;
-      $('heroLatestLink').href = pageUrl(latest);
-      $('heroLatestLink').setAttribute('aria-label', `Ouvir ${latest.title}`);
-
-      const cover = $('heroLatestCover');
-      if (latest.cover) {
-        cover.src = latest.cover;
-        cover.alt = `Capa do episódio ${latest.title}`;
-      }
-    }
-
-    // Números
-    if ($('factEpisodes')) $('factEpisodes').firstChild.textContent = String(state.all.length);
-    if ($('factHours')) {
-      const hours = Math.round(state.all.reduce((a, e) => a + (e.seconds || 0), 0) / 3600);
-      $('factHours').firstChild.textContent = String(hours);
-    }
-
-    // Episódio em destaque
-    const featured = $('featured');
-    if (featured) {
-      featured.innerHTML = `
-        <img class="featured__cover" src="${latest.cover}" alt="Capa do episódio ${latest.title}" width="400" height="400" loading="lazy">
-        <div>
-          <p class="meta">
-            <span class="${kindClass(latest)}">${kindLabel(latest)}</span>
-            <span>Temporada ${latest.season}</span>
-            <span>${latest.dateLabel}</span>
-            <span>${latest.duration}</span>
-          </p>
-          <h3 class="featured__title">${latest.title}</h3>
-          <p class="featured__desc">${clean(latest.description, 260)}</p>
-          <div class="featured__actions">
-            <a class="btn btn--light" href="${pageUrl(latest)}">Ouvir episódio</a>
-            <a class="btn btn--ghost" href="episodios.html">Ver todos</a>
-          </div>
-          <ul class="platforms">
-            <li><a href="https://open.spotify.com/show/0nLbEuYuL0trgLPo5lUbRJ" target="_blank" rel="noopener">Spotify</a></li>
-            <li><a href="https://podcasts.apple.com/us/podcast/futuro-sustent%C3%A1vel/id1704469234" target="_blank" rel="noopener">Apple Podcasts</a></li>
-            <li><a href="https://www.deezer.com/en/show/1000211035" target="_blank" rel="noopener">Deezer</a></li>
-          </ul>
-        </div>`;
-    }
-
-    // Episódios recentes
-    const rows = $('epRows');
-    if (rows) {
-      const limit = Number(rows.dataset.limit || 5);
-      rows.innerHTML = state.all.slice(1, limit + 1).map((ep) => `
-        <li class="ep-row">
-          <img class="ep-row__cover" src="${ep.cover}" alt="" width="96" height="96" loading="lazy">
-          <div>
-            <p class="meta">
-              <span class="${kindClass(ep)}">${kindLabel(ep)}</span>
-              <span>${ep.dateLabel}</span>
-              <span>${ep.duration}</span>
-            </p>
-            <h3 class="ep-row__title"><a href="${pageUrl(ep)}">${ep.title}</a></h3>
-            <p class="ep-row__desc">${clean(ep.description, 150)}</p>
-          </div>
-          <a class="ep-row__play" href="${pageUrl(ep)}" aria-label="Ouvir ${ep.title}">▶</a>
-        </li>`).join('');
-    }
-  }
 
   /* ================= PÁGINA DE EPISÓDIOS ================= */
   function startList() {

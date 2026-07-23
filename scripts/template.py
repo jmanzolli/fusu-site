@@ -69,6 +69,7 @@ def nav(prefix: str, active: str = "") -> str:
 
     <nav aria-label="Principal">
       <ul class="nav__links" id="navLinks">
+        <li class="nav__mobile-cta"><a href="{prefix}episodios.html">▶ Ouvir agora</a></li>
 {lis}
       </ul>
     </nav>
