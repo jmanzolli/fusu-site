@@ -799,7 +799,8 @@ h2.section-title { font-size: var(--fs-h2); color: inherit; }
   margin: 0 0 var(--s-5);
 }
 
-.manifesto__art img { border-radius: var(--radius-lg); box-shadow: var(--shadow-2); width: 100%; }
+.manifesto__art { display: grid; place-items: center; }
+.manifesto__art img { width: min(320px, 70%); height: auto; }
 
 /* ---------- 13. Equipa ---------- */
 .team {
@@ -1242,8 +1243,8 @@ body.player-open { padding-bottom: calc(var(--player-h, 108px) + env(safe-area-i
   .theme__text { display: none; }
   .theme::after { content: "→"; grid-column: 3; color: var(--brand); }
 
-  /* Manifesto: pôster em faixa, não em coluna inteira */
-  .manifesto__art img { aspect-ratio: 16 / 9; object-fit: cover; object-position: center 20%; }
+  /* Manifesto: logo menor no celular */
+  .manifesto__art img { width: 190px; }
 
   /* Equipe em duas colunas */
   .team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); }
@@ -1263,12 +1264,35 @@ body.player-open { padding-bottom: calc(var(--player-h, 108px) + env(safe-area-i
   #epRows .ep-row__desc { display: none; }
   #epRows .ep-row { padding-block: var(--s-4); }
 
-  /* Rodapé em duas colunas, logo menor */
-  .footer { padding-block: var(--s-7) var(--s-5); }
-  .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5); }
-  .footer__grid > :first-child { grid-column: 1 / -1; }
-  .footer__logo { width: 132px; }
-  .footer h2 { margin-bottom: var(--s-3); }
+  /* Rodapé simples e centralizado */
+  .footer { padding-block: var(--s-7) var(--s-5); text-align: center; }
+  .footer__grid { grid-template-columns: 1fr; gap: var(--s-6); justify-items: center; }
+  .footer__logo { width: 128px; margin-inline: auto; margin-bottom: var(--s-3); }
+  .footer__about { display: none; }
+
+  .footer h2 {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    color: var(--text-2-on-dark);
+    margin-bottom: var(--s-3);
+  }
+
+  .footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--s-2) var(--s-4);
+  }
+
+  .footer ul a { font-size: 0.95rem; }
+
+  .footer__bottom {
+    margin-top: var(--s-6);
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--s-2);
+    text-align: center;
+  }
 
   /* Contato mais enxuto */
   .contact__aside ul { gap: var(--s-2); }
