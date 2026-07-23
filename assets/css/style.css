@@ -341,7 +341,7 @@ h2.section-title { font-size: var(--fs-h2); color: inherit; }
   padding: 0;
 }
 
-.nav__links a {
+.nav__links a { white-space: nowrap;
   display: block;
   color: var(--text-on-dark);
   text-decoration: none;
@@ -1054,7 +1054,7 @@ body.player-open { padding-bottom: 108px; }
   .player-bar__extra { order: 2; }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 900px) {
   :root { --nav-h: 62px; }
 
   .nav__inner { gap: var(--s-3); flex-wrap: nowrap; }

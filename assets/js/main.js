@@ -25,7 +25,7 @@
     });
 
     // Fecha ao voltar para desktop
-    window.matchMedia('(min-width: 781px)').addEventListener('change', (e) => {
+    window.matchMedia('(min-width: 901px)').addEventListener('change', (e) => {
       if (e.matches) setOpen(false);
     });
   }
