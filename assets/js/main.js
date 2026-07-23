@@ -77,7 +77,7 @@
   if (!form) return;
 
   const status = $('#formStatus');
-  const fields = $$('input, select, textarea', form);
+  const fields = $$('input:not([type="hidden"]):not([name^="_"]), select, textarea', form);
 
   const messages = {
     nome: 'Escreva o seu nome.',
@@ -117,12 +117,14 @@
       return;
     }
 
-    if (form.action.includes('SEU_ID_AQUI')) {
-      setStatus('O formulário ainda não está ligado a um serviço de envio. Escreva para o FuSu pelo Instagram ou LinkedIn enquanto isso.', 'error');
+    // Armadilha para robôs: se o campo escondido veio preenchido, finge sucesso.
+    if (form.querySelector('[name="_honey"]')?.value) {
+      setStatus('Mensagem enviada. Obrigado!', 'ok');
+      form.reset();
       return;
     }
 
-    setStatus('A enviar…', 'loading');
+    setStatus('Enviando…', 'loading');
     const submit = $('button[type="submit"]', form);
     if (submit) submit.disabled = true;
 

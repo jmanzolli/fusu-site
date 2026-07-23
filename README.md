@@ -114,14 +114,28 @@ www  →  jmanzolli.github.io
 
 ## Formulário de contato
 
-Site estático não processa formulários. O `<form>` em `index.html` está apontado para o Formspree:
+O formulário usa o **FormSubmit** — funciona em site estático, sem backend e sem conta.
 
 ```html
-<form action="https://formspree.io/f/SEU_ID_AQUI" method="POST">
+<form action="https://formsubmit.co/ajax/manzolli.jonatas@gmail.com" method="POST">
 ```
 
-Criar conta grátis em https://formspree.io, copiar o ID do formulário e substituir `SEU_ID_AQUI`.
-Alternativas: Basin, Getform, Web3Forms. Ou trocar por `mailto:`.
+**Ativação (uma vez só):**
+
+1. Enviar uma mensagem de teste pelo site.
+2. Chega um e-mail do FormSubmit pedindo confirmação — clicar no link.
+3. A partir daí todas as mensagens chegam nesse endereço.
+
+**Esconder o e-mail do código (recomendado):** o e-mail de ativação traz um alias com hash,
+por exemplo `https://formsubmit.co/ajax/a1b2c3d4e5...`. Substituir o endereço pelo alias no
+`action` do formulário em `index.html` — o e-mail deixa de aparecer no HTML público e os
+robôs de spam param de colhê-lo.
+
+Já incluídos: campo-armadilha `_honey` contra robôs, assunto fixo (`_subject`) e envio por
+`fetch` com mensagens de "enviando", "enviado" e "erro" anunciadas por leitor de tela.
+
+Para trocar de serviço (Formspree, Basin, Web3Forms), basta mudar o `action` — o JavaScript
+funciona com qualquer endpoint que aceite `POST` de `FormData` e responda JSON.
 
 ## Identidade visual
 
